@@ -12,7 +12,7 @@ using Vallet.Persistence.Contexts;
 namespace Vallet.Persistence.Migrations
 {
     [DbContext(typeof(ValletDbContext))]
-    [Migration("20241101085642_mig1")]
+    [Migration("20241101183942_mig1")]
     partial class mig1
     {
         /// <inheritdoc />

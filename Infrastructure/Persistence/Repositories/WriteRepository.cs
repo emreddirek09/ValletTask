@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,34 +22,42 @@ namespace Vallet.Persistence.Repositories
 
         public DbSet<T> table => _context.Set<T>();
 
-        public Task<bool> AddAsync(T values)
+        public async Task<bool> AddAsync(T values)
         {
-            throw new NotImplementedException();
+            EntityEntry<T> entityEntry = await table.AddAsync(values);
+            return entityEntry.State == EntityState.Added;
         }
 
-        public Task<bool> AddRangeAsync(List<T> values)
+        public async Task<bool> AddRangeAsync(List<T> values)
         {
-            throw new NotImplementedException();
+            await table.AddRangeAsync(values);
+            return true;
         }
 
-        public Task<bool> DeleteAsync(T values)
+        public bool Delete(T values)
         {
-            throw new NotImplementedException();
+            EntityEntry entityEntry = table.Remove(values);
+            return entityEntry.State == EntityState.Deleted;
         }
 
-        public Task<bool> DeleteAsync(string id)
+        public async Task<bool> DeleteAsync(string id)
         {
-            throw new NotImplementedException();
+            T model = await table.FirstOrDefaultAsync(data => data.Id == Guid.Parse(id));
+            return Delete(model);
         }
 
-        public Task<int> SaveAsync()
+        public bool DeleteRange(List<T> values)
         {
-            throw new NotImplementedException();
+            table.RemoveRange(values);
+            return true;
         }
 
-        public Task<bool> UpdateAsync(T values)
+        public bool Update(T values)
         {
-            throw new NotImplementedException();
+            EntityEntry entry = table.Update(values);
+            return entry.State == EntityState.Modified;
         }
+
+        public async Task<int> SaveAsync() =>await _context.SaveChangesAsync();
     }
 }

@@ -11,9 +11,10 @@ namespace Vallet.Application.Repositories
     {
         Task<bool> AddAsync(T values);
         Task<bool> AddRangeAsync(List<T> values);
-        Task<bool> UpdateAsync(T values);
-        Task<bool> DeleteAsync(T values);
+        bool Delete(T values);
+        bool DeleteRange(List<T> values);
         Task<bool> DeleteAsync(string id);
+        bool Update(T values);
         Task<int> SaveAsync();
     }
 }
