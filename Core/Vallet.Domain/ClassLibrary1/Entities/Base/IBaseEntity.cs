@@ -10,5 +10,6 @@ namespace Vallet.Domain.Entities.Base
     {
         public Guid Id { get; set; }
         public DateTime? CreatedTime { get; set; }
+        public DateTime? UpdateTime { get; set; }
     }
 }

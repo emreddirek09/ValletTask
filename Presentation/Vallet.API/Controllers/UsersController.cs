@@ -28,8 +28,9 @@ namespace Vallet.API.Controllers
             //    new() { Id = Guid.NewGuid(), CreatedTime = DateTime.Now, FullName = "Doruk", Email = "doruk@gmail.com", PhoneNumber = "5352808161", Role = "user"}
             //});
 
-            User user = await _userReadRepository.GetByIdAsync("58D90914-7997-488C-B272-0C506C21890E",false);
+            User user = await _userReadRepository.GetByIdAsync("58D90914-7997-488C-B272-0C506C21890E");
             user.FullName = "Doruk";
+            user.PhoneNumber = "1111111";
             await _userWriteRepository.SaveAsync();
         }
 
