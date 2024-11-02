@@ -19,19 +19,21 @@ namespace Vallet.API.Controllers
         }
 
         [HttpGet]
-        public async void GET()
+        public async Task GET()
         {
-            await _userWriteRepository.AddRangeAsync(new()
-            {
-                new() { Id = Guid.NewGuid(), CreatedTime = DateTime.Now, FullName = "Emre Direk", Email = "emreddirek@gmail.com", PhoneNumber = "5332853709", Role = "Admin"},
-                new() { Id = Guid.NewGuid(), CreatedTime = DateTime.Now, FullName = "Cemre Erol", Email = "cemre@gmail.com", PhoneNumber = "5453404182", Role = "Admin"},
-                new() { Id = Guid.NewGuid(), CreatedTime = DateTime.Now, FullName = "Doruk", Email = "doruk@gmail.com", PhoneNumber = "5352808161", Role = "user"}
-            });
+            //await _userWriteRepository.AddRangeAsync(new()
+            //{
+            //    new() { Id = Guid.NewGuid(), CreatedTime = DateTime.Now, FullName = "Emre Direk", Email = "emreddirek@gmail.com", PhoneNumber = "5332853709", Role = "Admin"},
+            //    new() { Id = Guid.NewGuid(), CreatedTime = DateTime.Now, FullName = "Cemre Erol", Email = "cemre@gmail.com", PhoneNumber = "5453404182", Role = "Admin"},
+            //    new() { Id = Guid.NewGuid(), CreatedTime = DateTime.Now, FullName = "Doruk", Email = "doruk@gmail.com", PhoneNumber = "5352808161", Role = "user"}
+            //});
 
-            var count = _userWriteRepository.SaveAsync();
+            User user = await _userReadRepository.GetByIdAsync("58D90914-7997-488C-B272-0C506C21890E",false);
+            user.FullName = "Doruk";
+            await _userWriteRepository.SaveAsync();
         }
 
-        [HttpGet("id")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GET(string id)
         {
             User user = await _userReadRepository.GetByIdAsync(id);

@@ -22,14 +22,40 @@ namespace Vallet.Persistence.Repositories
 
         public DbSet<T> table => _context.Set<T>();
 
-        public IQueryable<T> GetAll() => table;
+        public IQueryable<T> GetAll(bool tracking = true)
+        {
+            var query = table.AsQueryable();
+            if(!tracking)
+                query=query.AsNoTracking();
+            return query;
+        }
 
         //public async Task<T> GetByIdAsync(string id) =>await table.FirstOrDefaultAsync(d => d.Id == Guid.Parse(id));
 
-        public async Task<T> GetByIdAsync(string id) => await table.FindAsync(Guid.Parse(id.ToString()));
+        //public async Task<T> GetByIdAsync(string id) => await table.FindAsync(Guid.Parse(id.ToString()));
+        public async Task<T> GetByIdAsync(string id, bool tracking = true)
+        {
+           var query = table.AsQueryable();
+            if(!tracking)
+                query=query.AsNoTracking();
+            return await query.FirstOrDefaultAsync(d => d.Id == Guid.Parse(id));
+        }
 
-        public async Task<T> GetSingleAsync(Expression<Func<T, bool>> expression) => await table.FirstOrDefaultAsync(expression);
+        public async Task<T> GetSingleAsync(Expression<Func<T, bool>> expression,bool tracking=true)
+        {
+            var query = table.AsQueryable();
+            if(!tracking)
+                query=query.AsNoTracking();
+            return await query.FirstOrDefaultAsync(expression);
 
-        public IQueryable<T> GetWhere(Expression<Func<T, bool>> expression) => table.Where(expression);
+        }
+
+        public IQueryable<T> GetWhere(Expression<Func<T, bool>> expression, bool tracking = true)
+        {
+            var query = table.AsQueryable();
+            if(!tracking)
+                query=query.AsNoTracking();
+            return query;
+        }
     }
 }
