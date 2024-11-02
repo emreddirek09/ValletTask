@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Vallet.Application.Repositories;
+using Vallet.Domain.Entities.Concretes;
 
 namespace Vallet.API.Controllers
 {
@@ -28,6 +29,13 @@ namespace Vallet.API.Controllers
             });
 
             var count = _userWriteRepository.SaveAsync();
+        }
+
+        [HttpGet("id")]
+        public async Task<IActionResult> GET(string id)
+        {
+            User user = await _userReadRepository.GetByIdAsync(id);
+            return Ok(user);
         }
     }
 }
