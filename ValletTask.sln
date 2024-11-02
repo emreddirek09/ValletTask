@@ -5,19 +5,21 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{0623B445-E937-42EB-961F-567AF718F91A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vallet.Domain", "Core\Vallet.Domain\ClassLibrary1\Vallet.Domain.csproj", "{D4525F4E-5199-4350-86D4-578C5E5D731C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vallet.Domain", "Core\Vallet.Domain\ClassLibrary1\Vallet.Domain.csproj", "{D4525F4E-5199-4350-86D4-578C5E5D731C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vallet.Application", "Core\Vallet.Application\Vallet.Application.csproj", "{186382C5-C402-4DC3-A469-9915E173257B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vallet.Application", "Core\Vallet.Application\Vallet.Application.csproj", "{186382C5-C402-4DC3-A469-9915E173257B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{F83F603A-FCC1-4C27-B8A2-A954A59FBDBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vallet.Infrastructure", "Infrastructure\Vallet.Infrastructure\Vallet.Infrastructure.csproj", "{BEC0AC62-8C79-4D0D-8571-27F71C1DC228}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vallet.Infrastructure", "Infrastructure\Vallet.Infrastructure\Vallet.Infrastructure.csproj", "{BEC0AC62-8C79-4D0D-8571-27F71C1DC228}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vallet.Persistence", "Infrastructure\Persistence\Vallet.Persistence.csproj", "{F1648E79-9DD4-443D-97EE-6F358B9078B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vallet.Persistence", "Infrastructure\Persistence\Vallet.Persistence.csproj", "{F1648E79-9DD4-443D-97EE-6F358B9078B4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{E3B4EFE2-596E-40DF-8F9D-0CAA2C3EB6B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vallet.API", "Presentation\Vallet.API\Vallet.API.csproj", "{55D2D814-CD02-4A29-A386-1AD89C28C897}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vallet.API", "Presentation\Vallet.API\Vallet.API.csproj", "{55D2D814-CD02-4A29-A386-1AD89C28C897}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vallet.UI", "Presentation\Vallet.UI\Vallet.UI.csproj", "{F49853D2-CA95-4DE3-9258-7DCD5369C641}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{55D2D814-CD02-4A29-A386-1AD89C28C897}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55D2D814-CD02-4A29-A386-1AD89C28C897}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55D2D814-CD02-4A29-A386-1AD89C28C897}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F49853D2-CA95-4DE3-9258-7DCD5369C641}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F49853D2-CA95-4DE3-9258-7DCD5369C641}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F49853D2-CA95-4DE3-9258-7DCD5369C641}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F49853D2-CA95-4DE3-9258-7DCD5369C641}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{BEC0AC62-8C79-4D0D-8571-27F71C1DC228} = {F83F603A-FCC1-4C27-B8A2-A954A59FBDBB}
 		{F1648E79-9DD4-443D-97EE-6F358B9078B4} = {F83F603A-FCC1-4C27-B8A2-A954A59FBDBB}
 		{55D2D814-CD02-4A29-A386-1AD89C28C897} = {E3B4EFE2-596E-40DF-8F9D-0CAA2C3EB6B8}
+		{F49853D2-CA95-4DE3-9258-7DCD5369C641} = {E3B4EFE2-596E-40DF-8F9D-0CAA2C3EB6B8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CC9F6E79-F357-4D18-BB81-A6C70C36CBF4}

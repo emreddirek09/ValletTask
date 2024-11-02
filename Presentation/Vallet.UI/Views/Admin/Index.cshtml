@@ -1,0 +1,867 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="flex-grow-1 text-center">
+    <h5 class="fs-16">Yeni Rezarvasyon</h5>
+</div>
+<div class="row">
+    <div class="col-xxl-12 col-md-12 col-lg-12">
+
+        <div class="card-body">
+            <div class="live-preview">
+                <div class="accordion lefticon-accordion custom-accordionwithicon accordion-border-box"
+                     id="accordionlefticon">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header"
+                            id="accordionlefticonExample1">
+                            <button class="accordion-button"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#accor_lefticonExamplecollapse1"
+                                    aria-expanded="true"
+                                    aria-controls="accor_lefticonExamplecollapse1">
+                                İletişim Bilgileri
+                            </button>
+                        </h2>
+                        <div id="accor_lefticonExamplecollapse1"
+                             class="accordion-collapse collapse show"
+                             aria-labelledby="accordionlefticonExample1"
+                             data-bs-parent="#accordionlefticon">
+                            <div class="accordion-body">
+                                <div class="card">
+                                    <div class="card-body checkout-tab">
+                                        <form action="#">
+                                            <div class="step-arrow-nav mt-n3 mx-n3 mb-3">
+
+                                                <ul class="nav nav-pills nav-justified custom-nav"
+                                                    role="tablist">
+                                                    <li class="nav-item"
+                                                        role="presentation">
+                                                        <button class="nav-link fs-15 p-3 active"
+                                                                id="pills-bill-info-tab"
+                                                                data-bs-toggle="pill"
+                                                                data-bs-target="#pills-bill-info"
+                                                                type="button"
+                                                                role="tab"
+                                                                aria-controls="pills-bill-info"
+                                                                aria-selected="true"
+                                                                data-position="0">
+                                                            <i class="ri-user-2-line fs-16 p-2 bg-soft-primary text-primary rounded-circle align-middle me-2"></i>
+                                                            Rezarvasyon
+                                                        </button>
+                                                    </li>
+                                                    <li class="nav-item"
+                                                        role="presentation">
+                                                        <button class="nav-link fs-15 p-3"
+                                                                id="pills-bill-address-tab"
+                                                                data-bs-toggle="pill"
+                                                                data-bs-target="#pills-bill-address"
+                                                                type="button"
+                                                                role="tab"
+                                                                aria-controls="pills-bill-address"
+                                                                aria-selected="false"
+                                                                data-position="1">
+                                                            <i class="ri-truck-line fs-16 p-2 bg-soft-primary text-primary rounded-circle align-middle me-2"></i>
+                                                            Satış
+                                                        </button>
+                                                    </li>
+                                                    <li class="nav-item"
+                                                        role="presentation">
+                                                        <button class="nav-link fs-15 p-3"
+                                                                id="pills-payment-tab"
+                                                                data-bs-toggle="pill"
+                                                                data-bs-target="#pills-payment"
+                                                                type="button"
+                                                                role="tab"
+                                                                aria-controls="pills-payment"
+                                                                aria-selected="false"
+                                                                data-position="2">
+                                                            <i class=" ri-checkbox-circle-line fs-16 p-2 bg-soft-rimary text-primary rounded-circle align-middle me-2"></i>
+                                                            Tesis
+                                                            Bilgileri
+                                                        </button>
+                                                    </li>
+                                                    <li class="nav-item"
+                                                        role="presentation">
+                                                        <button class="nav-link fs-15 p-3"
+                                                                id="pills-finish-tab"
+                                                                data-bs-toggle="pill"
+                                                                data-bs-target="#pills-finish"
+                                                                type="button"
+                                                                role="tab"
+                                                                aria-controls="pills-finish"
+                                                                aria-selected="false"
+                                                                data-position="3">
+                                                            <i class="ri-bank-card-line fs-16 p-2 bg-soft-primary ext-primary rounded-circle align-middle me-2"></i>
+                                                            Fiyat
+                                                            Listesi
+                                                        </button>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="tab-content">
+                                                <div class="tab-pane fade active show"
+                                                     id="pills-bill-info"
+                                                     role="tabpanel"
+                                                     aria-labelledby="pills-bill-info-tab">
+                                                    <div class="row">
+                                                        <div class="col-xxl-3 col-md-6">
+                                                            <div>
+                                                                <div class="form-icon">
+                                                                    <input type="text"
+                                                                           class="form-control form-control-icon"
+                                                                           id="validationDefault03"
+                                                                           placeholder="Ad Soyad"
+                                                                           required>
+                                                                    <i class="ri ri-user-line"></i>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xxl-3 col-md-6">
+                                                            <div>
+                                                                <div class="form-icon">
+                                                                    <input type="number"
+                                                                           class="form-control form-control-icon"
+                                                                           id="iconInput"
+                                                                           placeholder="Cep Telefonu">
+                                                                    <i class="ri ri-phone-line"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xxl-3 col-md-6">
+                                                            <div>
+                                                                <div class="form-icon">
+                                                                    <input type="email"
+                                                                           class="form-control form-control-icon"
+                                                                           id="iconInput"
+                                                                           placeholder="E-Posta Adresi">
+                                                                    <i class="ri-mail-unread-line"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--end col-->
+                                                        <div class="col-xxl-3 col-md-6">
+                                                            <div>
+                                                                <div class="form-icon">
+                                                                    <input type="number"
+                                                                           class="form-control form-control-icon"
+                                                                           id="iconInput"
+                                                                           placeholder="T.C. Kimlik Numarası">
+                                                                    <i class="bx bx-id-card"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex align-items-start gap-3 mt-4">
+                                                            <button type="button"
+                                                                    class="btn btn-primary btn-label right ms-auto exttab"
+                                                                    data-nexttab="pills-bill-address-tab">
+                                                                <i class="ri ri-truck-line label-icon align-middle s-16 ms-2"></i>İleri
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- end tab pane -->
+
+                                                <div class="tab-pane fade"
+                                                     id="pills-bill-address"
+                                                     role="tabpanel"
+                                                     aria-labelledby="pills-bill-address-tab">
+                                                    <div class="flex-shrink-0">
+                                                        <i class="ri-checkbox-circle-fill text-success"></i>
+                                                    </div>
+                                                    <div class="flex-grow-1 ms-2">
+                                                        Test2
+                                                    </div>
+
+                                                    <div class="d-flex align-items-start gap-3 mt-4">
+                                                        <button type="button"
+                                                                class="btn btn-light btn-label previestab"
+                                                                data-previous="pills-bill-info-tab">
+                                                            <i class="ri-arrow-left-line label-icon align-middle s-16 me-2"></i>
+                                                            Geri
+                                                        </button>
+                                                        <button type="button"
+                                                                class="btn btn-primary btn-label right ms-auto exttab"
+                                                                data-nexttab="pills-payment-tab">
+                                                            <i class="ri-hotel-line label-icon align-middle fs-16 s-2"></i>İleri
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <!-- end tab pane -->
+
+                                                <div class="tab-pane fade"
+                                                     id="pills-payment"
+                                                     role="tabpanel"
+                                                     aria-labelledby="pills-payment-tab">
+                                                    <div class="flex-shrink-0">
+                                                        <i class="ri-checkbox-circle-fill text-success"></i>
+                                                    </div>
+                                                    <div class="flex-grow-1 ms-2">
+                                                        Test2
+                                                    </div>
+
+
+
+                                                    <div class="d-flex align-items-start gap-3 mt-4">
+                                                        <button type="button"
+                                                                class="btn btn-light btn-label previestab"
+                                                                data-previous="pills-bill-address-tab">
+                                                            <i class="ri-arrow-left-line label-icon align-middle s-16 me-2"></i>Geri
+                                                        </button>
+                                                        <button type="button"
+                                                                class="btn btn-primary btn-label right ms-auto exttab"
+                                                                data-nexttab="pills-finish-tab">
+                                                            <i class="ri-bank-card-line  label-icon align-middle s-16 ms-2"></i>İleri
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <!-- end tab pane -->
+
+                                                <div class="tab-pane fade"
+                                                     id="pills-finish"
+                                                     role="tabpanel"
+                                                     aria-labelledby="pills-finish-tab">
+                                                    <div class="text-center py-5">
+
+                                                        <div class="flex-shrink-0">
+                                                            <i class="ri-checkbox-circle-fill text-success"></i>
+                                                        </div>
+                                                        <div class="flex-grow-1 ms-2">
+                                                            Test2
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- end tab pane -->
+                                            </div>
+                                            <!-- end tab content -->
+                                        </form>
+                                    </div>
+                                    <!-- end card body -->
+                                </div>
+                                <!-- end card -->
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header"
+                            id="accordionlefticonExample2">
+                            <button class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#accor_lefticonExamplecollapse2"
+                                    aria-expanded="false"
+                                    aria-controls="accor_lefticonExamplecollapse2">
+                                Misafir Oda Bilgileri
+                            </button>
+                        </h2>
+                        <div id="accor_lefticonExamplecollapse2"
+                             class="accordion-collapse collapse"
+                             aria-labelledby="accordionlefticonExample2"
+                             data-bs-parent="#accordionlefticon">
+                            <div class="accordion-body">
+                                <div class="row">
+                                    <div class="col-xxl-4 col-md-6 col-sm-4">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center">
+                                                <div class="col-12">
+                                                    <p></p>
+                                                    <div class="input-group">
+                                                        <div class="input-group-text form-control">
+                                                            Yetişkin
+                                                        </div>
+                                                        <div class="input-step step-success">
+                                                            <button type="button"
+                                                                    class="minus">
+                                                                –
+                                                            </button>
+                                                            <input type="number"
+                                                                   class="product-quantity"
+                                                                   value="3"
+                                                                   min="0"
+                                                                   max="100"
+                                                                   readonly>
+                                                            <button type="button"
+                                                                    class="plus">
+                                                                +
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-group">
+                                                        <div class="input-group-text form-control">
+                                                            Çocuk
+                                                        </div>
+                                                        <div class="input-step step-info">
+                                                            <button type="button"
+                                                                    class="minus">
+                                                                –
+                                                            </button>
+                                                            <input type="number"
+                                                                   class="product-quantity"
+                                                                   value="1"
+                                                                   min="0"
+                                                                   max="100"
+                                                                   readonly>
+                                                            <button type="button"
+                                                                    class="plus">
+                                                                +
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-group">
+                                                        <div class="input-group-text form-control">
+                                                            Oda
+                                                        </div>
+                                                        <div class="input-step step-warning">
+                                                            <button type="button"
+                                                                    class="minus">
+                                                                –
+                                                            </button>
+                                                            <input type="number"
+                                                                   class="product-quantity"
+                                                                   value="4"
+                                                                   min="0"
+                                                                   max="100"
+                                                                   readonly>
+                                                            <button type="button"
+                                                                    class="plus">
+                                                                +
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--end col-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-4 col-md-6 col-sm-4 text-center">
+
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center mb-4">
+                                                <div class="flex-grow-1">
+                                                    <h5 class="card-title mb-0">
+                                                        Misafir
+                                                    </h5>
+                                                </div>
+                                                <div class="flex-shrink-0">
+                                                    <a href="javascript:void(0);"
+                                                       class="badge bg-light text-primary fs-12">
+                                                        <i class="ri-add-fill align-bottom me-1"></i>
+                                                        Ekle
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 d-flex">
+                                                <div class="avatar-xs d-block flex-shrink-0 me-3">
+                                                    <span class="avatar-title rounded-circle fs-16 bg-dark text-ight">
+                                                        <i class="mdi mdi-card-account-details-star-outline"></i>
+                                                    </span>
+                                                </div>
+                                                <input type="text"
+                                                       class="form-control"
+                                                       id="gitUsername"
+                                                       placeholder="Ad Soyad"
+                                                       value="Ad Soyad">
+                                            </div>
+                                            <div class="mb-3 d-flex">
+                                                <div class="avatar-xs d-block flex-shrink-0 me-3">
+                                                    <span class="avatar-title rounded-circle fs-16 bg-dark text-ight">
+                                                        <i class="mdi mdi-human-male-female-child"></i>
+                                                    </span>
+                                                </div>
+                                                <input type="number"
+                                                       class="form-control"
+                                                       id="websiteInput"
+                                                       placeholder="Yas"
+                                                       value="Yas">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xxl-4 col-md-12 col-sm-4">
+                                        <div class="card">
+                                            <div class="text-center">
+                                                <h4 class="text-danger">
+                                                    Oda
+                                                    Misafir
+                                                    Listesi
+                                                </h4>
+                                            </div>
+                                            <!-- end card header -->
+                                            <div class="card-body text-center">
+                                                <div id="fuzzysearch-list">
+                                                    <div data-simplebar
+                                                         style="height: 100px;">
+                                                        <ul class="list-group">
+                                                            <li class="list-group-item list-group-fill-success">
+                                                                Emre
+                                                                Direk
+                                                                -
+                                                                27
+                                                            </li>
+                                                            <li class="list-group-item list-group-fill-danger">
+                                                                Cemre
+                                                                Erol
+                                                                -
+                                                                26
+                                                            </li>
+                                                            <li class="list-group-item list-group-fill-warning">
+                                                                Doruk
+                                                                Direk
+                                                                -
+                                                                10
+                                                            </li>
+                                                            <li class="list-group-item list-group-fill-info">
+                                                                Metehan
+                                                                Direk
+                                                                -
+                                                                4
+                                                            </li>
+                                                            <li class="list-group-item list-group-fill-light">
+                                                                Cihat
+                                                                Solmaz
+                                                                -
+                                                                29
+                                                            </li>
+                                                            <li class="list-group-item list-group-fill-dark">
+                                                                Büşra
+                                                                Yücel
+                                                                -
+                                                                27
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header"
+                            id="accordionlefticonExample3">
+                            <button class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#accor_lefticonExamplecollapse3"
+                                    aria-expanded="false"
+                                    aria-controls="accor_lefticonExamplecollapse3">
+                                Fatura Bilgileri
+                            </button>
+                        </h2>
+                        <div id="accor_lefticonExamplecollapse3"
+                             class="accordion-collapse collapse"
+                             aria-labelledby="accordionlefticonExample3"
+                             data-bs-parent="#accordionlefticon">
+                            <div class="accordion-body">
+                                <div class="step-arrow-nav mb-4">
+
+                                    <ul class="nav nav-pills custom-nav nav-justified"
+                                        role="tablist">
+                                        <li class="nav-item"
+                                            role="presentation">
+                                            <button class="nav-link active"
+                                                    id="steparrow-gen-info-tab"
+                                                    data-bs-toggle="pill"
+                                                    data-bs-target="#steparrow-gen-info"
+                                                    type="button"
+                                                    role="tab"
+                                                    aria-controls="steparrow-gen-info"
+                                                    aria-selected="true">
+                                                Şahıs
+                                                Adına
+                                            </button>
+                                        </li>
+                                        <li class="nav-item"
+                                            role="presentation">
+                                            <button class="nav-link "
+                                                    id="steparrow-description-info-tab"
+                                                    data-bs-toggle="pill"
+                                                    data-bs-target="#steparrow-description-info"
+                                                    type="button"
+                                                    role="tab"
+                                                    aria-controls="steparrow-description-info"
+                                                    aria-selected="false">
+                                                Şirket
+                                                Adına
+                                            </button>
+                                        </li>
+                                        <li class="nav-item"
+                                            role="presentation">
+                                            <button class="nav-link"
+                                                    id="pills-experience-tab"
+                                                    data-bs-toggle="pill"
+                                                    data-bs-target="#pills-experience"
+                                                    type="button"
+                                                    role="tab"
+                                                    aria-controls="pills-experience"
+                                                    aria-selected="false">
+                                                Yabancı
+                                                Uyruklu
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="tab-content">
+                                    <div class="tab-pane fade"
+                                         id="steparrow-gen-info"
+                                         role="tabpanel"
+                                         aria-labelledby="steparrow-gen-info-tab">
+                                        <div>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="mb-3">
+                                                        <label class="form-label"
+                                                               for="steparrow-gen-info-username-input">
+                                                            Ad
+                                                            Soyad
+                                                        </label>
+                                                        <input type="text"
+                                                               class="form-control"
+                                                               id="steparrow-gen-info-username-input"
+                                                               placeholder="Ad Soyad">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="mb-3">
+                                                        <label class="form-label"
+                                                               for="steparrow-gen-info-email-input">E-Posta</label>
+                                                        <input type="text"
+                                                               class="form-control"
+                                                               id="steparrow-gen-info-email-input"
+                                                               placeholder="E-Posta Giriniz">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label"
+                                                       for="steparrow-gen-info-password-input">Şifre</label>
+                                                <input type="password"
+                                                       class="form-control"
+                                                       id="steparrow-gen-info-password-input"
+                                                       placeholder="Şifre Giriniz">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label"
+                                                       for="steparrow-gen-info-confirm-password-input">
+                                                    T.C.
+                                                    Kimlik
+                                                    Numarası
+                                                </label>
+                                                <input type="text"
+                                                       class="form-control"
+                                                       id="steparrow-gen-info-confirm-password-input"
+                                                       placeholder="T.C. Kimlik Numarası Giriniz">
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="mb-3">
+                                                        <label class="form-label"
+                                                               for="steparrow-gen-info-username-input">İl</label>
+                                                        <input type="text"
+                                                               class="form-control"
+                                                               id="steparrow-gen-info-username-input"
+                                                               placeholder="Şehir Bilgisi">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="mb-3">
+                                                        <label class="form-label"
+                                                               for="steparrow-gen-info-email-input">İlçe</label>
+                                                        <input type="text"
+                                                               class="form-control"
+                                                               id="steparrow-gen-info-email-input"
+                                                               placeholder="İlçe Bilgisi Giriniz">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label"
+                                                       for="des-info-description-input">Adres</label>
+                                                <textarea class="form-control"
+                                                          placeholder="Adres Bilginizi Eksiksiz Giriniz"
+                                                          id="des-info-description-input"
+                                                          rows="3"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane fade show active"
+                                         id="steparrow-description-info"
+                                         role="tabpanel"
+                                         aria-labelledby="steparrow-description-info-tab">
+                                        <div>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="mb-3">
+                                                        <label class="form-label"
+                                                               for="steparrow-gen-info-username-input">
+                                                            Ad
+                                                            Soyad
+                                                        </label>
+                                                        <input type="text"
+                                                               class="form-control"
+                                                               id="steparrow-gen-info-username-input"
+                                                               placeholder="Ad Soyad Giriniz">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="mb-3">
+                                                        <label class="form-label"
+                                                               for="steparrow-gen-info-email-input">E-Posta</label>
+                                                        <input type="text"
+                                                               class="form-control"
+                                                               id="steparrow-gen-info-email-input"
+                                                               placeholder="E-Posta Giriniz Giriniz">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="mb-3">
+                                                        <label class="form-label"
+                                                               for="steparrow-gen-info-username-input">İl</label>
+                                                        <input type="text"
+                                                               class="form-control"
+                                                               id="steparrow-gen-info-username-input"
+                                                               placeholder="Şehir Bilgisi Giriniz">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="mb-3">
+                                                        <label class="form-label"
+                                                               for="steparrow-gen-info-email-input">İlçe</label>
+                                                        <input type="text"
+                                                               class="form-control"
+                                                               id="steparrow-gen-info-email-input"
+                                                               placeholder="İlçe Bilgisi Giriniz">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label"
+                                                       for="steparrow-gen-info-confirm-password-input">
+                                                    T.C
+                                                    Kimlik
+                                                    Numarası
+                                                </label>
+                                                <input type="text"
+                                                       class="form-control"
+                                                       id="steparrow-gen-info-confirm-password-input"
+                                                       placeholder="T.C Kimlik Giriniz">
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="mb-3">
+                                                        <label class="form-label"
+                                                               for="steparrow-gen-info-username-input">
+                                                            Vergi
+                                                            Dairesi
+                                                        </label>
+                                                        <input type="text"
+                                                               class="form-control"
+                                                               id="steparrow-gen-info-username-input"
+                                                               placeholder="Vergi Dairesi Bilgisi Giriniz">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="mb-3">
+                                                        <label class="form-label"
+                                                               for="steparrow-gen-info-email-input">
+                                                            Vergi
+                                                            Numarası
+                                                        </label>
+                                                        <input type="text"
+                                                               class="form-control"
+                                                               id="steparrow-gen-info-email-input"
+                                                               placeholder="Vergi Numarası Bilgisi Giriniz">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label class="form-label"
+                                                       for="des-info-description-input">Adres</label>
+                                                <textarea class="form-control"
+                                                          placeholder="Adres Bilginizi Eksiksiz Giriniz"
+                                                          id="des-info-description-input"
+                                                          rows="3"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane fade"
+                                         id="pills-experience"
+                                         role="tabpanel">
+                                        <div>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="mb-3">
+                                                        <label class="form-label"
+                                                               for="steparrow-gen-info-username-input">
+                                                            Ad
+                                                            Soyad
+                                                        </label>
+                                                        <input type="text"
+                                                               class="form-control"
+                                                               id="steparrow-gen-info-username-input"
+                                                               placeholder="Ad Soyad">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="mb-3">
+                                                        <label class="form-label"
+                                                               for="steparrow-gen-info-email-input">E-Posta</label>
+                                                        <input type="text"
+                                                               class="form-control"
+                                                               id="steparrow-gen-info-email-input"
+                                                               placeholder="E-Posta Giriniz">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label"
+                                                       for="steparrow-gen-info-confirm-password-input">
+                                                    Pasaport
+                                                    Numarası
+                                                </label>
+                                                <input type="text"
+                                                       class="form-control"
+                                                       id="steparrow-gen-info-confirm-password-input"
+                                                       placeholder="Pasaport Numarası Giriniz">
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="mb-3">
+                                                        <label class="form-label"
+                                                               for="steparrow-gen-info-username-input">İl</label>
+                                                        <input type="text"
+                                                               class="form-control"
+                                                               id="steparrow-gen-info-username-input"
+                                                               placeholder="Şehir Bilgisi">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="mb-3">
+                                                        <label class="form-label"
+                                                               for="steparrow-gen-info-email-input">İlçe</label>
+                                                        <input type="text"
+                                                               class="form-control"
+                                                               id="steparrow-gen-info-email-input"
+                                                               placeholder="İlçe Bilgisi Giriniz">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label"
+                                                       for="steparrow-gen-info-confirm-password-input">Ülke</label>
+                                                <input type="text"
+                                                       class="form-control"
+                                                       id="steparrow-gen-info-confirm-password-input"
+                                                       placeholder="Ülke Bilgisini Giriniz">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label"
+                                                       for="des-info-description-input">Adres</label>
+                                                <textarea class="form-control"
+                                                          placeholder="Adres Bilginizi Eksiksiz Giriniz"
+                                                          id="des-info-description-input"
+                                                          rows="3"></textarea>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header"
+                            id="accordionlefticonExample33">
+                            <button class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#accor_lefticonExamplecollapse33"
+                                    aria-expanded="false"
+                                    aria-controls="accor_lefticonExamplecollapse33">
+                                Diğer Bilgiler
+                            </button>
+                        </h2>
+                        <div id="accor_lefticonExamplecollapse33"
+                             class="accordion-collapse collapse"
+                             aria-labelledby="accordionlefticonExample33"
+                             data-bs-parent="#accordionlefticon">
+                            <div class="accordion-body">
+
+                                <div class="accordion-body">
+                                    <div class="mb-3">
+                                        <label class="form-label"
+                                               for="des-info-description-input">
+                                            Müşteri
+                                            Notu
+                                        </label>
+                                        <textarea class="form-control"
+                                                  placeholder="Müşteri Notu"
+                                                  id="des-info-description-input"
+                                                  rows="3"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label"
+                                               for="des-info-description-input">
+                                            Operasyona
+                                            Not
+                                        </label>
+                                        <textarea class="form-control"
+                                                  placeholder="Müşteri Notu"
+                                                  id="des-info-description-input"
+                                                  rows="3"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label"
+                                               for="des-info-description-input">
+                                            Gizli
+                                            Operasyon
+                                            Notu
+                                        </label>
+                                        <textarea class="form-control"
+                                                  placeholder="Müşteri Notu"
+                                                  id="des-info-description-input"
+                                                  rows="3"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label"
+                                               for="des-info-description-input">
+                                            Tesise
+                                            Not
+                                        </label>
+                                        <textarea class="form-control"
+                                                  placeholder="Müşteri Notu"
+                                                  id="des-info-description-input"
+                                                  rows="3"></textarea>
+                                    </div>
+                                    <button type="submit"
+                                            class="btn rounded-pill btn-soft-success waves-effect waves-light mb-1">
+                                        Bilgileri
+                                        Kaydet
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-none code-view">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

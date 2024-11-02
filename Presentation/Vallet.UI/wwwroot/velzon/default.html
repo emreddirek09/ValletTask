@@ -1,0 +1,1607 @@
+<!doctype html>
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg">
+
+<head>
+
+    <meta charset="utf-8">
+    <title>Otel Rezarvasyon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin &amp; Dashboard Template" name="description">
+    <meta content="Themesbrand" name="author">
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <!-- multi.js css -->
+    <link rel="stylesheet" type="text/css" href="assets/libs/multi.js/multi.min.css">
+    <!-- autocomplete css -->
+    <link rel="stylesheet" href="assets/libs/@tarekraafat/autocomplete.js/css/autoComplete.css">
+    <!-- Layout config Js -->
+    <script src="assets/js/layout.js"></script>
+    <!-- Bootstrap Css -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!-- Icons Css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css">
+    <!-- App Css-->
+    <link href="assets/css/app.min.css" rel="stylesheet" type="text/css">
+    <!-- custom Css-->
+    <link href="assets/css/custom.min.css" rel="stylesheet" type="text/css">
+    
+ 
+    <style>
+        .divtrue {
+            display: none;
+        }
+
+        .divfalse {
+            background-color: rgb(8, 41, 112);
+            border-color: darkred;
+            padding: 10px;
+            overflow: hidden;
+            display: block;
+            text-align: center; 
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="layout-wrapper">
+        <header id="page-topbar">
+            <div class="layout-width">
+                <div class="navbar-header">
+                    <div class="d-flex">
+                        <!-- LOGO -->
+                        <div class="navbar-brand-box horizontal-logo">
+                            <a href="#" class="logo logo-dark">
+                                <span class="logo-sm">
+                                    <img src="assets/images/logo-sm.png" alt="" height="22">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="assets/images/logo-dark.png" alt="" height="17">
+                                </span>
+                            </a>
+
+                            <a href="#" class="logo logo-light">
+                                <span class="logo-sm">
+                                    <img src="assets/images/logo-sm.png" alt="" height="22">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="assets/images/logo-light.png" alt="" height="17">
+                                </span>
+                            </a>
+                        </div>
+
+                        <button type="button"
+                            class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger"
+                            id="topnav-hamburger-icon">
+                            <span class="hamburger-icon">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+                        </button>
+
+                        <!-- App Search-->
+
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <form class="app-search d-none d-md-block">
+                            <div class="ms-sm-3 header-item ">
+                                <div class="input-group">
+                                    <div class="input-group-text rounded-pill">
+                                        <div class="position-relative ">
+                                            <input type="text" class="form-control "
+                                                placeholder="Kimlik Numarası,Pasaport Numarası,Telefon Numarası..."
+                                                autocomplete="off" id="search-options" value="">
+                                            <span class="mdi mdi-magnify search-widget-icon"></span>
+                                            <span
+                                                class="mdi mdi-close-circle search-widget-icon search-widget-icon-close d-none"
+                                                id="search-close-options"></span>
+
+                                        </div>
+
+                                        <button type="button"
+                                            class="btn rounded-pill btn-info waves-effect waves-light">ARA</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="dropdown d-md-none topbar-head-dropdown header-item">
+                            <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle"
+                                id="page-header-search-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                <i class="bx bx-search fs-22"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                                aria-labelledby="page-header-search-dropdown">
+                                <form class="p-3">
+                                    <div class="form-group m-0">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control"
+                                                placeholder="Kimlik Numarası,Pasaport Numarası,Telefon Numarası ..."
+                                                aria-label="Recipient's username">
+                                            <button class="btn btn-primary" type="submit"><i
+                                                    class="mdi mdi-magnify"></i></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="dropdown ms-sm-2 topbar-user">
+                            <a href="#" alt="Bildirimler">
+                                <span class="d-flex flex-column align-items-center">
+                                    <i class='ri ri-notification-2-fill fs-22'></i>
+                                    <span class="d-none d-xl-inline-block  fw-medium user-name-text">Bildirimler</span>
+                                </span>
+                            </a>
+
+                        </div>
+                        <div class="dropdown ms-sm-3 topbar-user">
+                            <a href="#" alt="Panel Sohbet">
+                                <span class="d-flex flex-column align-items-center">
+                                    <i class=' ri-folder-user-fill fs-22'></i>
+                                    <span class="d-none d-xl-inline-block fw-medium user-name-text">Panel
+                                        Sohbet</span>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="dropdown ms-sm-3 topbar-user">
+                            <a href="#" alt="Ekstra TV">
+                                <span class="d-flex flex-column align-items-center">
+                                    <i class='ri ri-computer-line fs-22'></i>
+                                    <span class="d-none d-xl-inline-block fw-medium user-name-text">Ekstra
+                                        TV</span>
+                                </span>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="app-menu navbar-menu">
+            <!-- LOGO -->
+            <div class="navbar-brand-box">
+                <!-- Dark Logo-->
+                <a href="#" class="logo logo-dark">
+                    <span class="logo-sm">
+                        <img src="assets/images/logo.png" alt="" height="30">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="assets/images/logo.png" alt="" height="50">
+                    </span>
+                </a>
+                <!-- Light Logo-->
+                <a href="#" class="logo logo-light">
+                    <span class="logo-sm">
+                        <img src="assets/images/logo.png" alt="" height="30">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="assets/images/logo.png" alt="" height="50">
+                    </span>
+                </a>
+                <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
+                    id="vertical-hover">
+                    <i class="ri-record-circle-line"></i>
+                </button>
+            </div>
+            <div id="scrollbar">
+                <div class="container-fluid ">
+                    <div class="p-4 mb-0">
+                        <div class="d-flex text-align-center">
+                            <img class="rounded-circle header-profile-user" src="assets/images/users/user.jpeg"
+                                height="50" alt="Emre">
+                            <div class="overflow-hidden">
+                                <span class="d-none d-xl-block ms-1 fs-12 text-white user-name-text">Hoşgeldin,</span>
+                                <span class="d-none d-xl-block ms-1 fs-12 text-white user-name-sub-text">EMRE</span>
+                                <span
+                                    class="d-none d-xl-block ms-1 fs-12 text-white user-name-sub-text">(Mühendis)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 mb-0 ">
+                        <div id="menuu" class="divfalse  rounded-top ">
+                            <p class="fw-semibold text-truncate mb-0 text-white">Satılan Oda:
+                                <span class="fw-semibold text-white">27</span>
+                            </p>
+                            <p class="fw-semibold text-truncate mb-0 text-white">Pax Sayısı: <span
+                                    class="fw-semibold text-white">56 + 8</span></p>
+                            <p class="fw-semibold text-truncate mb-0 text-white">Ciro Miktarı: <span
+                                    class="fw-semibold text-white">569566 ₺</span></p>
+                            <p class="fw-semibold text-truncate mb-0 text-white">Konfirme Tutarı: <span
+                                    class="fw-semibold text-white">4664.88 ₺</span></p>
+                            <p class="fw-semibold text-truncate mb-0 text-white">Kar Miktarı: <span
+                                    class="fw-semibold text-white">103041.12 ₺</span></p>
+                        </div>
+                    </div>
+
+                    <div id="two-column-menu">
+                    </div>
+                    <ul class="navbar-nav" id="navbar-nav">
+                        <li class="menu-title"><span data-key="t-menu">GENEL MENÜ</span></li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" target="_blank" href="#">
+                                <i class="bx bx-home-heart"></i> <span data-key="t-landing">Ana Sayfa</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#sidebarDashboardsHotel" data-bs-toggle="collapse"
+                                role="button" aria-expanded="false" aria-controls="sidebarDashboardsHotel">
+                                <i class=" las la-hotel"></i> <span data-key="t-dashboards">Otel Rezarvasyon</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="sidebarDashboardsHotel">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link" data-key="t-analytics">Yeni Rezarvasyon</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link" data-key="t-crm">Rezarvasyonlar </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link" data-key="t-ecommerce">Aranma Talepleri</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link" data-key="t-crypto"> Sms & E-Posta Gönder </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#tourReservation" data-bs-toggle="collapse"
+                                role="button" aria-expanded="false" aria-controls="tourReservation">
+                                <i class="mdi mdi-transit-connection-variant"></i> <span data-key="t-dashboards">Tur
+                                    Rezarvasyon</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#customerManagement" data-bs-toggle="collapse"
+                                role="button" aria-expanded="false" aria-controls="customerManagement">
+                                <i class="bx bx-id-card"></i> <span data-key="t-dashboards">Müşteri Yönetimi</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#operation" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="operation">
+                                <i class="ri ri-list-ordered"></i> <span data-key="t-dashboards">Operasyon</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#accounting" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="accounting">
+                                <i class="bx bxs-user-account"></i> <span data-key="t-dashboards">Muhasebe</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#advertisingManagement" data-bs-toggle="collapse"
+                                role="button" aria-expanded="false" aria-controls="advertisingManagement">
+                                <i class="ri ri-camera-lens-fill"></i> <span data-key="t-dashboards">Reklam
+                                    Yönetimi</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#Facilities" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="Facilities">
+                                <i class="ri ri-hotel-bed-line"></i> <span data-key="t-dashboards">Tesisler</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#tur" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="tur">
+                                <i class="ri ri-lifebuoy-line"></i> <span data-key="t-dashboards">Turlar</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#transport" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="transport">
+                                <i class="bx bx-transfer-alt"></i> <span data-key="t-dashboards">Transport</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#sideSettings" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="sideSettings">
+                                <i class="ri ri-computer-line"></i> <span data-key="t-dashboards">Site
+                                    Ayarları</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#settings" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="settings">
+                                <i class="ri ri-list-settings-fill"></i> <span data-key="t-dashboards">Genel
+                                    Ayarlar</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#humanResources" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="humanResources">
+                                <i class="ri ri-user-location-fill"></i> <span data-key="t-dashboards">İnsan
+                                    Kaynakları</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- Sidebar -->
+
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="page-content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-12 col-md-12 col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="live-preview">
+                                        <form class="row g-3">
+
+                                            <div class="col-xl-3 col-lg-4">
+                                                <div class="d-grid p-2 bg-light card-body p-2">
+
+                                                    <div class="flex-grow-1 text-center">
+                                                        <h5 class="fs-16">NG Afyon Sağlık & Kongre</h5>
+                                                    </div>
+                                                    <div class="swiper-wrapper">
+                                                        <div class="swiper-slide">
+                                                            <div class="position-relative">
+                                                                <div
+                                                                    class="position-absolute top-0 end-0 avatar-xs rounded">
+                                                                    <button type="button"
+                                                                        class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target=".bs-example-modal-xl">
+                                                                        <i
+                                                                            class='mdi mdi-fit-to-screen-outline fs-22'></i></button>
+
+                                                                    <!-- <button type="button"
+                                                                        class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle"
+                                                                        data-toggle="fullscreen">
+                                                                        <i
+                                                                            class='mdi mdi-fit-to-screen-outline fs-22'></i>
+                                                                    </button> -->
+                                                                </div>
+                                                                <img src="assets/images/products/img-11.png" alt=""
+                                                                    class="img-fluid d-block" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="d-grid p-2 bg-light flex-grow-1 text-center">
+                                                    <label class="form-label">Rezarvasyon Seçenekleri</label>
+                                                </div>
+                                                <!-- Input with Icon -->
+                                                <div class="d-grid p-2 bg-light">
+                                                    <div class="input-group mb-2">
+                                                        <span class="input-group-text text-align-center"
+                                                            style="width: 110px;">Giriş Tarihi </span>
+                                                        <input type="date" class="form-control" id="exampleInputdate1">
+
+                                                    </div>
+                                                    <div class="input-group mb-2">
+                                                        <span class="input-group-text text-align-center"
+                                                            style="width: 110px;">Çıkış Tarihi </span>
+                                                        <input type="date" class="form-control" id="exampleInputdate2">
+
+                                                    </div>
+
+                                                    <div class="input-group mb-2">
+                                                        <span class="input-group-text text-align-center"
+                                                            style="width: 110px;">Gece Sayısı</span>
+                                                        <select class="form-select" data-choices
+                                                            data-choices-search-false name="choices-single-default2"
+                                                            id="numberSelect" onchange="calculate()">
+                                                            <option value="1">1 Gece</option>
+                                                            <option value="2">2 Gece</option>
+                                                            <option value="3">3 Gece</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="input-group mb-2">
+                                                        <span class="input-group-text text-align-center"
+                                                            style="width: 110px;">Ödeme Tipi</span>
+                                                        <select class="form-select" data-choices
+                                                            data-choices-search-false name="choices-single-default"
+                                                            id="choices-single-default">
+                                                            <option selected>Tamamını Öde</option>
+                                                            <option value="iki">Taksitli Öde</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="input-group mb-2">
+                                                        <span class="input-group-text text-align-center"
+                                                            style="width: 110px;">Pansiyon Tipi</span>
+                                                        <select class="form-select" data-choices
+                                                            data-choices-search-false name="choices-single-default"
+                                                            id="choices-single-default">
+                                                            <option selected>Tam Pansiyon</option>
+                                                            <option value="iki">Yarım Pansiyon</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!-- Buttons Grid -->
+
+                                                <div class="d-grid p-2 bg-light">
+                                                    <button type="button"
+                                                        class="btn rounded-pill btn-warning waves-effect waves-light mb-1">ODA
+                                                        TUTARI <span class="text-truncate text-white mb-0"
+                                                            id="resultText">: 10000 ₺</span></button>
+                                                    <button type="button"
+                                                        class="btn rounded-pill btn-success waves-effect text-white mb-1">GENEL
+                                                        TOPLAM <span class="text-truncate text-white mb-0"
+                                                            id="resultText1">: 10000 ₺</span></button>
+
+                                                    <div class="text-center mb-1">
+                                                        <a class="text-primary mb-0 text-decoration-underline "
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#staticBackdrop">Taksit
+                                                            tablosu için tıklayınız</a>
+                                                    </div>
+                                                    <div class="p-4 border border-dashed d-flex align-items-center">
+                                                        <div
+                                                            class=" form-check form-switch form-switch-right form-switch-lg">
+                                                            <input class="form-check-input code-switcher"
+                                                                type="checkbox" id="background-show-code">
+
+                                                        </div> <span class="text-secondary text-truncate">&nbsp;Tatil
+                                                            İptal Güvencesi (+ ₺)</span>
+                                                    </div>
+                                                </div>
+                                                <div class="d-grid bg-light">
+                                                    <div class="flex-grow-1 text-center">
+                                                        <label class="form-label">Fiyat İndirim / Arttırım</label>
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text">İndirim</span>
+                                                        <input type="text" placeholder="Miktar TL"
+                                                            aria-label="Miktar TL" class="form-control">
+                                                        <span class="input-group-text">Not</span>
+                                                        <input type="text" placeholder="Açıklama" aria-label="Açıklama"
+                                                            class="form-control">
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text">Arttırım</span>
+                                                        <input type="text" placeholder="Miktar TL"
+                                                            aria-label="Miktar TL" class="form-control">
+                                                        <span class="input-group-text">Not</span>
+                                                        <input type="text" placeholder="Açıklama" aria-label="Açıklama"
+                                                            class="form-control">
+                                                    </div>
+                                                    <div class="flex-grow-1 text-center">
+                                                        <label class="form-label">Transfer hizmeti</label>
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text">Ücret</span>
+                                                        <select class="form-control" data-choices
+                                                            data-choices-search-false name="choices-single-default"
+                                                            id="choices-single-default3" disabled>
+                                                            <option selected>Seç</option>
+                                                        </select>
+                                                        <button type="button"
+                                                            class="btn btn-secondary waves-effect waves-light">Transferler</button>
+
+                                                    </div>
+                                                    <div class="d-grid p-1 gap-1 mb-3">
+                                                        <button type="button"
+                                                            class="btn rounded-pill btn-info waves-effect waves-light mb-1">
+                                                            <i class="bx bx-refresh"></i>
+                                                            Tutar
+                                                            Hesapla </button>
+                                                        <button
+                                                            class="btn rounded-pill btn-secondary waves-effect waves-light mb-1"
+                                                            type="button">
+                                                            <i class="bx bxs-pencil "></i>
+                                                            Rezarvasyon
+                                                            Güncelle </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-9 col-lg-8">
+                                                <div class="card">
+                                                    <div class="card-header border-0">
+                                                        <div class="row g-4">
+                                                            <div class="flex-grow-1 text-center">
+                                                                <h5 class="fs-16">Yeni Rezarvasyon</h5>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xxl-12 col-md-12 col-lg-12">
+
+                                                                    <div class="card-body">
+                                                                        <div class="live-preview">
+                                                                            <div class="accordion lefticon-accordion custom-accordionwithicon accordion-border-box"
+                                                                                id="accordionlefticon">
+                                                                                <div class="accordion-item">
+                                                                                    <h2 class="accordion-header"
+                                                                                        id="accordionlefticonExample1">
+                                                                                        <button class="accordion-button"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="collapse"
+                                                                                            data-bs-target="#accor_lefticonExamplecollapse1"
+                                                                                            aria-expanded="true"
+                                                                                            aria-controls="accor_lefticonExamplecollapse1">
+                                                                                            İletişim Bilgileri
+                                                                                        </button>
+                                                                                    </h2>
+                                                                                    <div id="accor_lefticonExamplecollapse1"
+                                                                                        class="accordion-collapse collapse show"
+                                                                                        aria-labelledby="accordionlefticonExample1"
+                                                                                        data-bs-parent="#accordionlefticon">
+                                                                                        <div class="accordion-body">
+                                                                                            <div class="card">
+                                                                                                <div
+                                                                                                    class="card-body checkout-tab">
+                                                                                                    <form action="#">
+                                                                                                        <div
+                                                                                                            class="step-arrow-nav mt-n3 mx-n3 mb-3">
+
+                                                                                                            <ul class="nav nav-pills nav-justified custom-nav"
+                                                                                                                role="tablist">
+                                                                                                                <li class="nav-item"
+                                                                                                                    role="presentation">
+                                                                                                                    <button
+                                                                                                                        class="nav-link fs-15 p-3 active"
+                                                                                                                        id="pills-bill-info-tab"
+                                                                                                                        data-bs-toggle="pill"
+                                                                                                                        data-bs-target="#pills-bill-info"
+                                                                                                                        type="button"
+                                                                                                                        role="tab"
+                                                                                                                        aria-controls="pills-bill-info"
+                                                                                                                        aria-selected="true"
+                                                                                                                        data-position="0"><i
+                                                                                                                            class="ri-user-2-line fs-16 p-2 bg-soft-primary text-primary rounded-circle align-middle me-2"></i>
+                                                                                                                        Rezarvasyon</button>
+                                                                                                                </li>
+                                                                                                                <li class="nav-item"
+                                                                                                                    role="presentation">
+                                                                                                                    <button
+                                                                                                                        class="nav-link fs-15 p-3"
+                                                                                                                        id="pills-bill-address-tab"
+                                                                                                                        data-bs-toggle="pill"
+                                                                                                                        data-bs-target="#pills-bill-address"
+                                                                                                                        type="button"
+                                                                                                                        role="tab"
+                                                                                                                        aria-controls="pills-bill-address"
+                                                                                                                        aria-selected="false"
+                                                                                                                        data-position="1"><i
+                                                                                                                            class="ri-truck-line fs-16 p-2 bg-soft-primary text-primary rounded-circle align-middle me-2"></i>
+                                                                                                                        Satış</button>
+                                                                                                                </li>
+                                                                                                                <li class="nav-item"
+                                                                                                                    role="presentation">
+                                                                                                                    <button
+                                                                                                                        class="nav-link fs-15 p-3"
+                                                                                                                        id="pills-payment-tab"
+                                                                                                                        data-bs-toggle="pill"
+                                                                                                                        data-bs-target="#pills-payment"
+                                                                                                                        type="button"
+                                                                                                                        role="tab"
+                                                                                                                        aria-controls="pills-payment"
+                                                                                                                        aria-selected="false"
+                                                                                                                        data-position="2"><i
+                                                                                                                            class=" ri-checkbox-circle-line fs-16 p-2 bg-soft-primary text-primary rounded-circle align-middle me-2"></i>
+                                                                                                                        Tesis
+                                                                                                                        Bilgileri</button>
+                                                                                                                </li>
+                                                                                                                <li class="nav-item"
+                                                                                                                    role="presentation">
+                                                                                                                    <button
+                                                                                                                        class="nav-link fs-15 p-3"
+                                                                                                                        id="pills-finish-tab"
+                                                                                                                        data-bs-toggle="pill"
+                                                                                                                        data-bs-target="#pills-finish"
+                                                                                                                        type="button"
+                                                                                                                        role="tab"
+                                                                                                                        aria-controls="pills-finish"
+                                                                                                                        aria-selected="false"
+                                                                                                                        data-position="3"><i
+                                                                                                                            class="ri-bank-card-line fs-16 p-2 bg-soft-primary text-primary rounded-circle align-middle me-2"></i>
+                                                                                                                        Fiyat
+                                                                                                                        Listesi</button>
+                                                                                                                </li>
+                                                                                                            </ul>
+                                                                                                        </div>
+
+                                                                                                        <div
+                                                                                                            class="tab-content">
+                                                                                                            <div class="tab-pane fade active show"
+                                                                                                                id="pills-bill-info"
+                                                                                                                role="tabpanel"
+                                                                                                                aria-labelledby="pills-bill-info-tab">
+                                                                                                                <div
+                                                                                                                    class="row">
+                                                                                                                    <div
+                                                                                                                        class="col-xxl-3 col-md-6">
+                                                                                                                        <div>
+                                                                                                                            <div
+                                                                                                                                class="form-icon">
+                                                                                                                                <input
+                                                                                                                                    type="text"
+                                                                                                                                    class="form-control form-control-icon"
+                                                                                                                                    id="validationDefault03"
+                                                                                                                                    placeholder="Ad Soyad"
+                                                                                                                                    required>
+                                                                                                                                <i
+                                                                                                                                    class="ri ri-user-line"></i>
+
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                    <div
+                                                                                                                        class="col-xxl-3 col-md-6">
+                                                                                                                        <div>
+                                                                                                                            <div
+                                                                                                                                class="form-icon">
+                                                                                                                                <input
+                                                                                                                                    type="number"
+                                                                                                                                    class="form-control form-control-icon"
+                                                                                                                                    id="iconInput"
+                                                                                                                                    placeholder="Cep Telefonu">
+                                                                                                                                <i
+                                                                                                                                    class="ri ri-phone-line"></i>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                    <div
+                                                                                                                        class="col-xxl-3 col-md-6">
+                                                                                                                        <div>
+                                                                                                                            <div
+                                                                                                                                class="form-icon">
+                                                                                                                                <input
+                                                                                                                                    type="email"
+                                                                                                                                    class="form-control form-control-icon"
+                                                                                                                                    id="iconInput"
+                                                                                                                                    placeholder="E-Posta Adresi">
+                                                                                                                                <i
+                                                                                                                                    class="ri-mail-unread-line"></i>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                    <!--end col-->
+                                                                                                                    <div
+                                                                                                                        class="col-xxl-3 col-md-6">
+                                                                                                                        <div>
+                                                                                                                            <div
+                                                                                                                                class="form-icon">
+                                                                                                                                <input
+                                                                                                                                    type="number"
+                                                                                                                                    class="form-control form-control-icon"
+                                                                                                                                    id="iconInput"
+                                                                                                                                    placeholder="T.C. Kimlik Numarası">
+                                                                                                                                <i
+                                                                                                                                    class="bx bx-id-card"></i>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                    <div
+                                                                                                                    class="d-flex align-items-start gap-3 mt-4"> 
+                                                                                                                    <button
+                                                                                                                        type="button"
+                                                                                                                        class="btn btn-primary btn-label right ms-auto nexttab"
+                                                                                                                        data-nexttab="pills-bill-address-tab"><i
+                                                                                                                            class="ri ri-truck-line label-icon align-middle fs-16 ms-2"></i>İleri</button>
+                                                                                                                </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <!-- end tab pane -->
+
+                                                                                                            <div class="tab-pane fade"
+                                                                                                                id="pills-bill-address"
+                                                                                                                role="tabpanel"
+                                                                                                                aria-labelledby="pills-bill-address-tab">
+                                                                                                                <div
+                                                                                                                    class="flex-shrink-0">
+                                                                                                                    <i
+                                                                                                                        class="ri-checkbox-circle-fill text-success"></i>
+                                                                                                                </div>
+                                                                                                                <div
+                                                                                                                    class="flex-grow-1 ms-2">
+                                                                                                                    Test2
+                                                                                                                </div>
+
+                                                                                                                <div
+                                                                                                                    class="d-flex align-items-start gap-3 mt-4">
+                                                                                                                    <button
+                                                                                                                        type="button"
+                                                                                                                        class="btn btn-light btn-label previestab"
+                                                                                                                        data-previous="pills-bill-info-tab"><i
+                                                                                                                            class="ri-arrow-left-line label-icon align-middle fs-16 me-2"></i>
+                                                                                                                        Geri</button>
+                                                                                                                    <button
+                                                                                                                        type="button"
+                                                                                                                        class="btn btn-primary btn-label right ms-auto nexttab"
+                                                                                                                        data-nexttab="pills-payment-tab"><i
+                                                                                                                            class="ri-hotel-line label-icon align-middle fs-16 ms-2"></i>İleri</button>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <!-- end tab pane -->
+
+                                                                                                            <div class="tab-pane fade"
+                                                                                                                id="pills-payment"
+                                                                                                                role="tabpanel"
+                                                                                                                aria-labelledby="pills-payment-tab">
+                                                                                                                <div
+                                                                                                                    class="flex-shrink-0">
+                                                                                                                    <i
+                                                                                                                        class="ri-checkbox-circle-fill text-success"></i>
+                                                                                                                </div>
+                                                                                                                <div
+                                                                                                                    class="flex-grow-1 ms-2">
+                                                                                                                    Test2
+                                                                                                                </div>
+
+
+
+                                                                                                                <div
+                                                                                                                    class="d-flex align-items-start gap-3 mt-4">
+                                                                                                                    <button
+                                                                                                                        type="button"
+                                                                                                                        class="btn btn-light btn-label previestab"
+                                                                                                                        data-previous="pills-bill-address-tab"><i
+                                                                                                                            class="ri-arrow-left-line label-icon align-middle fs-16 me-2"></i>Geri</button>
+                                                                                                                    <button
+                                                                                                                        type="button"
+                                                                                                                        class="btn btn-primary btn-label right ms-auto nexttab"
+                                                                                                                        data-nexttab="pills-finish-tab"><i
+                                                                                                                            class="ri-bank-card-line  label-icon align-middle fs-16 ms-2"></i>İleri</button>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <!-- end tab pane -->
+
+                                                                                                            <div class="tab-pane fade"
+                                                                                                                id="pills-finish"
+                                                                                                                role="tabpanel"
+                                                                                                                aria-labelledby="pills-finish-tab">
+                                                                                                                <div
+                                                                                                                    class="text-center py-5">
+
+                                                                                                                    <div
+                                                                                                                        class="flex-shrink-0">
+                                                                                                                        <i
+                                                                                                                            class="ri-checkbox-circle-fill text-success"></i>
+                                                                                                                    </div>
+                                                                                                                    <div
+                                                                                                                        class="flex-grow-1 ms-2">
+                                                                                                                        Test2
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <!-- end tab pane -->
+                                                                                                        </div>
+                                                                                                        <!-- end tab content -->
+                                                                                                    </form>
+                                                                                                </div>
+                                                                                                <!-- end card body -->
+                                                                                            </div>
+                                                                                            <!-- end card -->
+
+
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="accordion-item">
+                                                                                    <h2 class="accordion-header"
+                                                                                        id="accordionlefticonExample2">
+                                                                                        <button
+                                                                                            class="accordion-button collapsed"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="collapse"
+                                                                                            data-bs-target="#accor_lefticonExamplecollapse2"
+                                                                                            aria-expanded="false"
+                                                                                            aria-controls="accor_lefticonExamplecollapse2">
+                                                                                            Misafir Oda Bilgileri
+                                                                                        </button>
+                                                                                    </h2>
+                                                                                    <div id="accor_lefticonExamplecollapse2"
+                                                                                        class="accordion-collapse collapse"
+                                                                                        aria-labelledby="accordionlefticonExample2"
+                                                                                        data-bs-parent="#accordionlefticon">
+                                                                                        <div class="accordion-body">
+                                                                                            <div class="row">
+                                                                                                <div
+                                                                                                    class="col-xxl-4 col-md-6 col-sm-4">
+                                                                                                    <div
+                                                                                                        class="card-body">
+                                                                                                        <div
+                                                                                                            class="d-flex align-items-center">
+                                                                                                            <div
+                                                                                                                class="col-12">
+                                                                                                                <p></p>
+                                                                                                                <div
+                                                                                                                    class="input-group">
+                                                                                                                    <div
+                                                                                                                        class="input-group-text form-control">
+                                                                                                                        Yetişkin
+                                                                                                                    </div>
+                                                                                                                    <div
+                                                                                                                        class="input-step step-success">
+                                                                                                                        <button
+                                                                                                                            type="button"
+                                                                                                                            class="minus">–</button>
+                                                                                                                        <input
+                                                                                                                            type="number"
+                                                                                                                            class="product-quantity"
+                                                                                                                            value="3"
+                                                                                                                            min="0"
+                                                                                                                            max="100"
+                                                                                                                            readonly>
+                                                                                                                        <button
+                                                                                                                            type="button"
+                                                                                                                            class="plus">+</button>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                                <div
+                                                                                                                    class="input-group">
+                                                                                                                    <div
+                                                                                                                        class="input-group-text form-control">
+                                                                                                                        Çocuk
+                                                                                                                    </div>
+                                                                                                                    <div
+                                                                                                                        class="input-step step-info">
+                                                                                                                        <button
+                                                                                                                            type="button"
+                                                                                                                            class="minus">–</button>
+                                                                                                                        <input
+                                                                                                                            type="number"
+                                                                                                                            class="product-quantity"
+                                                                                                                            value="1"
+                                                                                                                            min="0"
+                                                                                                                            max="100"
+                                                                                                                            readonly>
+                                                                                                                        <button
+                                                                                                                            type="button"
+                                                                                                                            class="plus">+</button>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                                <div
+                                                                                                                    class="input-group">
+                                                                                                                    <div
+                                                                                                                        class="input-group-text form-control">
+                                                                                                                        Oda
+                                                                                                                    </div>
+                                                                                                                    <div
+                                                                                                                        class="input-step step-warning">
+                                                                                                                        <button
+                                                                                                                            type="button"
+                                                                                                                            class="minus">–</button>
+                                                                                                                        <input
+                                                                                                                            type="number"
+                                                                                                                            class="product-quantity"
+                                                                                                                            value="4"
+                                                                                                                            min="0"
+                                                                                                                            max="100"
+                                                                                                                            readonly>
+                                                                                                                        <button
+                                                                                                                            type="button"
+                                                                                                                            class="plus">+</button>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <!--end col-->
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="col-xxl-4 col-md-6 col-sm-4 text-center">
+
+                                                                                                    <div
+                                                                                                        class="card-body">
+                                                                                                        <div
+                                                                                                            class="d-flex align-items-center mb-4">
+                                                                                                            <div
+                                                                                                                class="flex-grow-1">
+                                                                                                                <h5
+                                                                                                                    class="card-title mb-0">
+                                                                                                                    Misafir
+                                                                                                                </h5>
+                                                                                                            </div>
+                                                                                                            <div
+                                                                                                                class="flex-shrink-0">
+                                                                                                                <a href="javascript:void(0);"
+                                                                                                                    class="badge bg-light text-primary fs-12"><i
+                                                                                                                        class="ri-add-fill align-bottom me-1"></i>
+                                                                                                                    Ekle</a>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="mb-3 d-flex">
+                                                                                                            <div
+                                                                                                                class="avatar-xs d-block flex-shrink-0 me-3">
+                                                                                                                <span
+                                                                                                                    class="avatar-title rounded-circle fs-16 bg-dark text-light">
+                                                                                                                    <i
+                                                                                                                        class="mdi mdi-card-account-details-star-outline"></i>
+                                                                                                                </span>
+                                                                                                            </div>
+                                                                                                            <input
+                                                                                                                type="text"
+                                                                                                                class="form-control"
+                                                                                                                id="gitUsername"
+                                                                                                                placeholder="Ad Soyad"
+                                                                                                                value="Ad Soyad">
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="mb-3 d-flex">
+                                                                                                            <div
+                                                                                                                class="avatar-xs d-block flex-shrink-0 me-3">
+                                                                                                                <span
+                                                                                                                    class="avatar-title rounded-circle fs-16 bg-dark text-light">
+                                                                                                                    <i
+                                                                                                                        class="mdi mdi-human-male-female-child"></i>
+                                                                                                                </span>
+                                                                                                            </div>
+                                                                                                            <input
+                                                                                                                type="number"
+                                                                                                                class="form-control"
+                                                                                                                id="websiteInput"
+                                                                                                                placeholder="Yas"
+                                                                                                                value="Yas">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+
+                                                                                                <div
+                                                                                                    class="col-xxl-4 col-md-12 col-sm-4">
+                                                                                                    <div class="card">
+                                                                                                        <div
+                                                                                                            class="text-center">
+                                                                                                            <h4
+                                                                                                                class="text-danger">
+                                                                                                                Oda
+                                                                                                                Misafir
+                                                                                                                Listesi
+                                                                                                            </h4>
+                                                                                                        </div>
+                                                                                                        <!-- end card header -->
+                                                                                                        <div
+                                                                                                            class="card-body text-center">
+                                                                                                            <div
+                                                                                                                id="fuzzysearch-list">
+                                                                                                                <div data-simplebar
+                                                                                                                    style="height: 100px;">
+                                                                                                                    <ul
+                                                                                                                        class="list-group">
+                                                                                                                        <li
+                                                                                                                            class="list-group-item list-group-fill-success">
+                                                                                                                            Emre
+                                                                                                                            Direk
+                                                                                                                            -
+                                                                                                                            27
+                                                                                                                        </li>
+                                                                                                                        <li
+                                                                                                                            class="list-group-item list-group-fill-danger">
+                                                                                                                            Cemre
+                                                                                                                            Erol
+                                                                                                                            -
+                                                                                                                            26
+                                                                                                                        </li>
+                                                                                                                        <li
+                                                                                                                            class="list-group-item list-group-fill-warning">
+                                                                                                                            Doruk
+                                                                                                                            Direk
+                                                                                                                            -
+                                                                                                                            10
+                                                                                                                        </li>
+                                                                                                                        <li
+                                                                                                                            class="list-group-item list-group-fill-info">
+                                                                                                                            Metehan
+                                                                                                                            Direk
+                                                                                                                            -
+                                                                                                                            4
+                                                                                                                        </li>
+                                                                                                                        <li
+                                                                                                                            class="list-group-item list-group-fill-light">
+                                                                                                                            Cihat
+                                                                                                                            Solmaz
+                                                                                                                            -
+                                                                                                                            29
+                                                                                                                        </li>
+                                                                                                                        <li
+                                                                                                                            class="list-group-item list-group-fill-dark">
+                                                                                                                            Büşra
+                                                                                                                            Yücel
+                                                                                                                            -
+                                                                                                                            27
+                                                                                                                        </li>
+                                                                                                                    </ul>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="accordion-item">
+                                                                                    <h2 class="accordion-header"
+                                                                                        id="accordionlefticonExample3">
+                                                                                        <button
+                                                                                            class="accordion-button collapsed"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="collapse"
+                                                                                            data-bs-target="#accor_lefticonExamplecollapse3"
+                                                                                            aria-expanded="false"
+                                                                                            aria-controls="accor_lefticonExamplecollapse3">
+                                                                                            Fatura Bilgileri
+                                                                                        </button>
+                                                                                    </h2>
+                                                                                    <div id="accor_lefticonExamplecollapse3"
+                                                                                        class="accordion-collapse collapse"
+                                                                                        aria-labelledby="accordionlefticonExample3"
+                                                                                        data-bs-parent="#accordionlefticon">
+                                                                                        <div class="accordion-body">
+                                                                                            <div
+                                                                                                class="step-arrow-nav mb-4">
+
+                                                                                                <ul class="nav nav-pills custom-nav nav-justified"
+                                                                                                    role="tablist">
+                                                                                                    <li class="nav-item"
+                                                                                                        role="presentation">
+                                                                                                        <button
+                                                                                                            class="nav-link active"
+                                                                                                            id="steparrow-gen-info-tab"
+                                                                                                            data-bs-toggle="pill"
+                                                                                                            data-bs-target="#steparrow-gen-info"
+                                                                                                            type="button"
+                                                                                                            role="tab"
+                                                                                                            aria-controls="steparrow-gen-info"
+                                                                                                            aria-selected="true">Şahıs
+                                                                                                            Adına</button>
+                                                                                                    </li>
+                                                                                                    <li class="nav-item"
+                                                                                                        role="presentation">
+                                                                                                        <button
+                                                                                                            class="nav-link "
+                                                                                                            id="steparrow-description-info-tab"
+                                                                                                            data-bs-toggle="pill"
+                                                                                                            data-bs-target="#steparrow-description-info"
+                                                                                                            type="button"
+                                                                                                            role="tab"
+                                                                                                            aria-controls="steparrow-description-info"
+                                                                                                            aria-selected="false">Şirket
+                                                                                                            Adına</button>
+                                                                                                    </li>
+                                                                                                    <li class="nav-item"
+                                                                                                        role="presentation">
+                                                                                                        <button
+                                                                                                            class="nav-link"
+                                                                                                            id="pills-experience-tab"
+                                                                                                            data-bs-toggle="pill"
+                                                                                                            data-bs-target="#pills-experience"
+                                                                                                            type="button"
+                                                                                                            role="tab"
+                                                                                                            aria-controls="pills-experience"
+                                                                                                            aria-selected="false">Yabancı
+                                                                                                            Uyruklu</button>
+                                                                                                    </li>
+                                                                                                </ul>
+                                                                                            </div>
+
+                                                                                            <div class="tab-content">
+                                                                                                <div class="tab-pane fade"
+                                                                                                    id="steparrow-gen-info"
+                                                                                                    role="tabpanel"
+                                                                                                    aria-labelledby="steparrow-gen-info-tab">
+                                                                                                    <div>
+                                                                                                        <div
+                                                                                                            class="row">
+                                                                                                            <div
+                                                                                                                class="col-lg-6">
+                                                                                                                <div
+                                                                                                                    class="mb-3">
+                                                                                                                    <label
+                                                                                                                        class="form-label"
+                                                                                                                        for="steparrow-gen-info-username-input">Ad
+                                                                                                                        Soyad</label>
+                                                                                                                    <input
+                                                                                                                        type="text"
+                                                                                                                        class="form-control"
+                                                                                                                        id="steparrow-gen-info-username-input"
+                                                                                                                        placeholder="Ad Soyad">
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div
+                                                                                                                class="col-lg-6">
+                                                                                                                <div
+                                                                                                                    class="mb-3">
+                                                                                                                    <label
+                                                                                                                        class="form-label"
+                                                                                                                        for="steparrow-gen-info-email-input">E-Posta</label>
+                                                                                                                    <input
+                                                                                                                        type="text"
+                                                                                                                        class="form-control"
+                                                                                                                        id="steparrow-gen-info-email-input"
+                                                                                                                        placeholder="E-Posta Giriniz">
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="mb-3">
+                                                                                                            <label
+                                                                                                                class="form-label"
+                                                                                                                for="steparrow-gen-info-password-input">Şifre</label>
+                                                                                                            <input
+                                                                                                                type="password"
+                                                                                                                class="form-control"
+                                                                                                                id="steparrow-gen-info-password-input"
+                                                                                                                placeholder="Şifre Giriniz">
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="mb-3">
+                                                                                                            <label
+                                                                                                                class="form-label"
+                                                                                                                for="steparrow-gen-info-confirm-password-input">T.C.
+                                                                                                                Kimlik
+                                                                                                                Numarası</label>
+                                                                                                            <input
+                                                                                                                type="text"
+                                                                                                                class="form-control"
+                                                                                                                id="steparrow-gen-info-confirm-password-input"
+                                                                                                                placeholder="T.C. Kimlik Numarası Giriniz">
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="row">
+                                                                                                            <div
+                                                                                                                class="col-lg-6">
+                                                                                                                <div
+                                                                                                                    class="mb-3">
+                                                                                                                    <label
+                                                                                                                        class="form-label"
+                                                                                                                        for="steparrow-gen-info-username-input">İl</label>
+                                                                                                                    <input
+                                                                                                                        type="text"
+                                                                                                                        class="form-control"
+                                                                                                                        id="steparrow-gen-info-username-input"
+                                                                                                                        placeholder="Şehir Bilgisi">
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div
+                                                                                                                class="col-lg-6">
+                                                                                                                <div
+                                                                                                                    class="mb-3">
+                                                                                                                    <label
+                                                                                                                        class="form-label"
+                                                                                                                        for="steparrow-gen-info-email-input">İlçe</label>
+                                                                                                                    <input
+                                                                                                                        type="text"
+                                                                                                                        class="form-control"
+                                                                                                                        id="steparrow-gen-info-email-input"
+                                                                                                                        placeholder="İlçe Bilgisi Giriniz">
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="mb-3">
+                                                                                                            <label
+                                                                                                                class="form-label"
+                                                                                                                for="des-info-description-input">Adres</label>
+                                                                                                            <textarea
+                                                                                                                class="form-control"
+                                                                                                                placeholder="Adres Bilginizi Eksiksiz Giriniz"
+                                                                                                                id="des-info-description-input"
+                                                                                                                rows="3"></textarea>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+
+                                                                                                <div class="tab-pane fade show active"
+                                                                                                    id="steparrow-description-info"
+                                                                                                    role="tabpanel"
+                                                                                                    aria-labelledby="steparrow-description-info-tab">
+                                                                                                    <div>
+                                                                                                        <div
+                                                                                                            class="row">
+                                                                                                            <div
+                                                                                                                class="col-lg-6">
+                                                                                                                <div
+                                                                                                                    class="mb-3">
+                                                                                                                    <label
+                                                                                                                        class="form-label"
+                                                                                                                        for="steparrow-gen-info-username-input">Ad
+                                                                                                                        Soyad</label>
+                                                                                                                    <input
+                                                                                                                        type="text"
+                                                                                                                        class="form-control"
+                                                                                                                        id="steparrow-gen-info-username-input"
+                                                                                                                        placeholder="Ad Soyad Giriniz">
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div
+                                                                                                                class="col-lg-6">
+                                                                                                                <div
+                                                                                                                    class="mb-3">
+                                                                                                                    <label
+                                                                                                                        class="form-label"
+                                                                                                                        for="steparrow-gen-info-email-input">E-Posta</label>
+                                                                                                                    <input
+                                                                                                                        type="text"
+                                                                                                                        class="form-control"
+                                                                                                                        id="steparrow-gen-info-email-input"
+                                                                                                                        placeholder="E-Posta Giriniz Giriniz">
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="row">
+                                                                                                            <div
+                                                                                                                class="col-lg-6">
+                                                                                                                <div
+                                                                                                                    class="mb-3">
+                                                                                                                    <label
+                                                                                                                        class="form-label"
+                                                                                                                        for="steparrow-gen-info-username-input">İl</label>
+                                                                                                                    <input
+                                                                                                                        type="text"
+                                                                                                                        class="form-control"
+                                                                                                                        id="steparrow-gen-info-username-input"
+                                                                                                                        placeholder="Şehir Bilgisi Giriniz">
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div
+                                                                                                                class="col-lg-6">
+                                                                                                                <div
+                                                                                                                    class="mb-3">
+                                                                                                                    <label
+                                                                                                                        class="form-label"
+                                                                                                                        for="steparrow-gen-info-email-input">İlçe</label>
+                                                                                                                    <input
+                                                                                                                        type="text"
+                                                                                                                        class="form-control"
+                                                                                                                        id="steparrow-gen-info-email-input"
+                                                                                                                        placeholder="İlçe Bilgisi Giriniz">
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="mb-3">
+                                                                                                            <label
+                                                                                                                class="form-label"
+                                                                                                                for="steparrow-gen-info-confirm-password-input">T.C
+                                                                                                                Kimlik
+                                                                                                                Numarası</label>
+                                                                                                            <input
+                                                                                                                type="text"
+                                                                                                                class="form-control"
+                                                                                                                id="steparrow-gen-info-confirm-password-input"
+                                                                                                                placeholder="T.C Kimlik Giriniz">
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="row">
+                                                                                                            <div
+                                                                                                                class="col-lg-6">
+                                                                                                                <div
+                                                                                                                    class="mb-3">
+                                                                                                                    <label
+                                                                                                                        class="form-label"
+                                                                                                                        for="steparrow-gen-info-username-input">Vergi
+                                                                                                                        Dairesi</label>
+                                                                                                                    <input
+                                                                                                                        type="text"
+                                                                                                                        class="form-control"
+                                                                                                                        id="steparrow-gen-info-username-input"
+                                                                                                                        placeholder="Vergi Dairesi Bilgisi Giriniz">
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div
+                                                                                                                class="col-lg-6">
+                                                                                                                <div
+                                                                                                                    class="mb-3">
+                                                                                                                    <label
+                                                                                                                        class="form-label"
+                                                                                                                        for="steparrow-gen-info-email-input">Vergi
+                                                                                                                        Numarası</label>
+                                                                                                                    <input
+                                                                                                                        type="text"
+                                                                                                                        class="form-control"
+                                                                                                                        id="steparrow-gen-info-email-input"
+                                                                                                                        placeholder="Vergi Numarası Bilgisi Giriniz">
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+
+                                                                                                        <div
+                                                                                                            class="mb-3">
+                                                                                                            <label
+                                                                                                                class="form-label"
+                                                                                                                for="des-info-description-input">Adres</label>
+                                                                                                            <textarea
+                                                                                                                class="form-control"
+                                                                                                                placeholder="Adres Bilginizi Eksiksiz Giriniz"
+                                                                                                                id="des-info-description-input"
+                                                                                                                rows="3"></textarea>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+
+                                                                                                <div class="tab-pane fade"
+                                                                                                    id="pills-experience"
+                                                                                                    role="tabpanel">
+                                                                                                    <div>
+                                                                                                        <div
+                                                                                                            class="row">
+                                                                                                            <div
+                                                                                                                class="col-lg-6">
+                                                                                                                <div
+                                                                                                                    class="mb-3">
+                                                                                                                    <label
+                                                                                                                        class="form-label"
+                                                                                                                        for="steparrow-gen-info-username-input">Ad
+                                                                                                                        Soyad</label>
+                                                                                                                    <input
+                                                                                                                        type="text"
+                                                                                                                        class="form-control"
+                                                                                                                        id="steparrow-gen-info-username-input"
+                                                                                                                        placeholder="Ad Soyad">
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div
+                                                                                                                class="col-lg-6">
+                                                                                                                <div
+                                                                                                                    class="mb-3">
+                                                                                                                    <label
+                                                                                                                        class="form-label"
+                                                                                                                        for="steparrow-gen-info-email-input">E-Posta</label>
+                                                                                                                    <input
+                                                                                                                        type="text"
+                                                                                                                        class="form-control"
+                                                                                                                        id="steparrow-gen-info-email-input"
+                                                                                                                        placeholder="E-Posta Giriniz">
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="mb-3">
+                                                                                                            <label
+                                                                                                                class="form-label"
+                                                                                                                for="steparrow-gen-info-confirm-password-input">Pasaport
+                                                                                                                Numarası</label>
+                                                                                                            <input
+                                                                                                                type="text"
+                                                                                                                class="form-control"
+                                                                                                                id="steparrow-gen-info-confirm-password-input"
+                                                                                                                placeholder="Pasaport Numarası Giriniz">
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="row">
+                                                                                                            <div
+                                                                                                                class="col-lg-6">
+                                                                                                                <div
+                                                                                                                    class="mb-3">
+                                                                                                                    <label
+                                                                                                                        class="form-label"
+                                                                                                                        for="steparrow-gen-info-username-input">İl</label>
+                                                                                                                    <input
+                                                                                                                        type="text"
+                                                                                                                        class="form-control"
+                                                                                                                        id="steparrow-gen-info-username-input"
+                                                                                                                        placeholder="Şehir Bilgisi">
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div
+                                                                                                                class="col-lg-6">
+                                                                                                                <div
+                                                                                                                    class="mb-3">
+                                                                                                                    <label
+                                                                                                                        class="form-label"
+                                                                                                                        for="steparrow-gen-info-email-input">İlçe</label>
+                                                                                                                    <input
+                                                                                                                        type="text"
+                                                                                                                        class="form-control"
+                                                                                                                        id="steparrow-gen-info-email-input"
+                                                                                                                        placeholder="İlçe Bilgisi Giriniz">
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="mb-3">
+                                                                                                            <label
+                                                                                                                class="form-label"
+                                                                                                                for="steparrow-gen-info-confirm-password-input">Ülke</label>
+                                                                                                            <input
+                                                                                                                type="text"
+                                                                                                                class="form-control"
+                                                                                                                id="steparrow-gen-info-confirm-password-input"
+                                                                                                                placeholder="Ülke Bilgisini Giriniz">
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="mb-3">
+                                                                                                            <label
+                                                                                                                class="form-label"
+                                                                                                                for="des-info-description-input">Adres</label>
+                                                                                                            <textarea
+                                                                                                                class="form-control"
+                                                                                                                placeholder="Adres Bilginizi Eksiksiz Giriniz"
+                                                                                                                id="des-info-description-input"
+                                                                                                                rows="3"></textarea>
+                                                                                                        </div>
+                                                                                                    </div>
+
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="accordion-item">
+                                                                                    <h2 class="accordion-header"
+                                                                                        id="accordionlefticonExample33">
+                                                                                        <button
+                                                                                            class="accordion-button collapsed"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="collapse"
+                                                                                            data-bs-target="#accor_lefticonExamplecollapse33"
+                                                                                            aria-expanded="false"
+                                                                                            aria-controls="accor_lefticonExamplecollapse33">
+                                                                                            Diğer Bilgiler </button>
+                                                                                        </button>
+                                                                                    </h2>
+                                                                                    <div id="accor_lefticonExamplecollapse33"
+                                                                                        class="accordion-collapse collapse"
+                                                                                        aria-labelledby="accordionlefticonExample33"
+                                                                                        data-bs-parent="#accordionlefticon">
+                                                                                        <div class="accordion-body">
+
+                                                                                            <div class="accordion-body">
+                                                                                                <div class="mb-3">
+                                                                                                    <label
+                                                                                                        class="form-label"
+                                                                                                        for="des-info-description-input">Müşteri
+                                                                                                        Notu</label>
+                                                                                                    <textarea
+                                                                                                        class="form-control"
+                                                                                                        placeholder="Müşteri Notu"
+                                                                                                        id="des-info-description-input"
+                                                                                                        rows="3"></textarea>
+                                                                                                </div>
+                                                                                                <div class="mb-3">
+                                                                                                    <label
+                                                                                                        class="form-label"
+                                                                                                        for="des-info-description-input">Operasyona
+                                                                                                        Not</label>
+                                                                                                    <textarea
+                                                                                                        class="form-control"
+                                                                                                        placeholder="Müşteri Notu"
+                                                                                                        id="des-info-description-input"
+                                                                                                        rows="3"></textarea>
+                                                                                                </div>
+                                                                                                <div class="mb-3">
+                                                                                                    <label
+                                                                                                        class="form-label"
+                                                                                                        for="des-info-description-input">Gizli
+                                                                                                        Operasyon
+                                                                                                        Notu</label>
+                                                                                                    <textarea
+                                                                                                        class="form-control"
+                                                                                                        placeholder="Müşteri Notu"
+                                                                                                        id="des-info-description-input"
+                                                                                                        rows="3"></textarea>
+                                                                                                </div>
+                                                                                                <div class="mb-3">
+                                                                                                    <label
+                                                                                                        class="form-label"
+                                                                                                        for="des-info-description-input">Tesise
+                                                                                                        Not</label>
+                                                                                                    <textarea
+                                                                                                        class="form-control"
+                                                                                                        placeholder="Müşteri Notu"
+                                                                                                        id="des-info-description-input"
+                                                                                                        rows="3"></textarea>
+                                                                                                </div>
+                                                                                                <button type="submit"
+                                                                                                    class="btn rounded-pill btn-soft-success waves-effect waves-light mb-1"></i>Bilgileri
+                                                                                                    Kaydet</button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="d-none code-view">
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="vertical-overlay"></div> <!-- Silme -->
+
+            <!-- Static Backdrop -->
+
+            <div class="modal fade bs-example-modal-xl" tabindex="-1" role="dialog"
+                aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <img src="assets/images/products/img-11.png" alt="" class="img-fluid d-block" />
+                        <!-- <div class="modal-footer">
+                            <a href="javascript:void(0);" class="btn btn-link link-success fw-medium" data-bs-dismiss="modal"><i class="ri-close-line me-1 align-middle"></i> Close</a>
+                            <button type="button" class="btn btn-primary ">Save changes</button>
+                        </div> -->
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
+        </div>
+
+        <script>
+            function calculate() {
+                let selectedValue = parseFloat(document.getElementById("numberSelect").value);
+                let result = 10000 * selectedValue;
+                document.getElementById("resultText").innerText = ":" + result + " ₺";
+                document.getElementById("resultText1").innerText = ":" + result + " ₺";
+
+
+            }
+        </script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const hamburgerIcon = document.getElementById('topnav-hamburger-icon');
+                const menu = document.getElementById('menuu');
+                hamburgerIcon.addEventListener('click', () => {
+                    if (menu.classList.contains('divfalse')) {
+                        menu.classList.remove('divfalse');
+                        menu.classList.add('divtrue');
+                    } else {
+                        menu.classList.remove('divtrue');
+                        menu.classList.add('divfalse');
+                    }
+                });
+            });
+        </script>
+
+        <!--start back-to-top-->
+        <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+            <i class="ri-arrow-up-line"></i>
+        </button>
+        <!--end back-to-top-->
+
+
+        <!-- prismjs plugin -->
+        <script src="assets/libs/prismjs/prism.js"></script>
+        <script src="assets/libs/list.js/list.min.js"></script>
+        <script src="assets/libs/list.pagination.js/list.pagination.min.js"></script>
+
+        <!-- JAVASCRIPT -->
+        <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/libs/simplebar/simplebar.min.js"></script>
+        <script src="assets/libs/node-waves/waves.min.js"></script>
+        <script src="assets/libs/feather-icons/feather.min.js"></script>
+        <script src="assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
+        <script src="assets/js/plugins.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+        <script type="text/javascript" src="assets/libs/choices.js/public/assets/scripts/choices.min.js"></script>
+        <script type="text/javascript" src="assets/libs/flatpickr/flatpickr.min.js"></script>
+
+
+        <!-- multi.js -->
+        <script src="assets/libs/multi.js/multi.min.js"></script>
+        <!-- autocomplete js -->
+        <script src="assets/libs/@tarekraafat/autocomplete.js/autoComplete.min.js"></script>
+
+        <!-- init js -->
+        <script src="assets/js/pages/form-advanced.init.js"></script>
+        <!-- input spin init -->
+        <script src="assets/js/pages/form-input-spin.init.js"></script>
+
+        <!-- App js -->
+        <script src="assets/js/app.js"></script>
+ 
+
+    <!-- init js -->
+    <script src="assets/js/pages/ecommerce-product-checkout.init.js"></script>
+ 
+
+    </div>
+   
+</body>
+
+
+</html>
