@@ -7,11 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\Vallet.Application\Vallet.Application.csproj" />
+    <Compile Remove="Utilities\**" />
+    <EmbeddedResource Remove="Utilities\**" />
+    <None Remove="Utilities\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Utilities\IOC\" />
+    <ProjectReference Include="..\..\Core\Vallet.Application\Vallet.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>

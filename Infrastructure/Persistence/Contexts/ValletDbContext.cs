@@ -26,7 +26,8 @@ namespace Vallet.Persistence.Contexts
                 _ = entity.State switch
                 {
                     EntityState.Added => entity.Entity.CreatedTime = DateTime.UtcNow,
-                    EntityState.Modified => entity.Entity.UpdateTime = DateTime.UtcNow
+                    EntityState.Modified => entity.Entity.UpdateTime = DateTime.UtcNow,
+                    _ => DateTime.UtcNow
                 };
             }
 

@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Vallet.Application.IOC.Commands.CreateUser;
+using Vallet.Application.IOC.Queries.GetAllUser;
 using Vallet.Application.Repositories;
 using Vallet.Domain.Entities.Concretes;
 
@@ -11,27 +14,20 @@ namespace Vallet.API.Controllers
     {
         readonly private IUserWriteRepository _userWriteRepository;
         readonly private IUserReadRepository _userReadRepository;
+        readonly private IMediator _mediator;
 
-        public UsersController(IUserWriteRepository userWriteRepository, IUserReadRepository userReadRepository)
+        public UsersController(IUserWriteRepository userWriteRepository, IUserReadRepository userReadRepository, IMediator mediator)
         {
             _userWriteRepository = userWriteRepository;
             _userReadRepository = userReadRepository;
+            _mediator = mediator;
         }
 
         [HttpGet]
-        public async Task GET()
+        public async Task<IActionResult> GET([FromQuery] GetAllUserQueryRequest getAllUserQueryRequest)
         {
-            //await _userWriteRepository.AddRangeAsync(new()
-            //{
-            //    new() { Id = Guid.NewGuid(), CreatedTime = DateTime.Now, FullName = "Emre Direk", Email = "emreddirek@gmail.com", PhoneNumber = "5332853709", Role = "Admin"},
-            //    new() { Id = Guid.NewGuid(), CreatedTime = DateTime.Now, FullName = "Cemre Erol", Email = "cemre@gmail.com", PhoneNumber = "5453404182", Role = "Admin"},
-            //    new() { Id = Guid.NewGuid(), CreatedTime = DateTime.Now, FullName = "Doruk", Email = "doruk@gmail.com", PhoneNumber = "5352808161", Role = "user"}
-            //});
-
-            User user = await _userReadRepository.GetByIdAsync("58D90914-7997-488C-B272-0C506C21890E");
-            user.FullName = "Doruk";
-            user.PhoneNumber = "1111111";
-            await _userWriteRepository.SaveAsync();
+            GetAllUserQueryResponse response = await _mediator.Send(getAllUserQueryRequest);
+            return Ok(response);
         }
 
         [HttpGet("{id}")]
@@ -39,6 +35,13 @@ namespace Vallet.API.Controllers
         {
             User user = await _userReadRepository.GetByIdAsync(id);
             return Ok(user);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Post(CreateUserCommandRequest createUser)
+        {
+            CreateUserCommandResponse response = await _mediator.Send(createUser);
+            return Ok(response);
         }
     }
 }
