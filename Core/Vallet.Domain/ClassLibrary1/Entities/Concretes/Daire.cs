@@ -11,8 +11,9 @@ namespace Vallet.Domain.Entities.Concretes
     { 
         public int DaireFloorNumber { get; set; }
         public int DaireApartmentNumber { get; set; } 
-        public int UserID { get; set; }
+        public Guid? UsersId { get; set; }
         public User? Users { get; set; }
+        public Guid? BlockId { get; set; }
         public Blok? Block { get; set; }
         public ICollection<DaireBorc>? DaireBorcs { get; set; }
     }

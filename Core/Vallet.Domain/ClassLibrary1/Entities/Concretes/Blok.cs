@@ -10,7 +10,8 @@ namespace Vallet.Domain.Entities.Concretes
     public class Blok:BaseEntity
     { 
         public string? BlockName { get; set; }
-        public int BlockNumberOfFloors { get; set; } 
+        public int BlockNumberOfFloors { get; set; }
+        public Guid? SiteId { get; set; } 
         public ICollection<Daire>? Daires { get; set; }
     }
 }

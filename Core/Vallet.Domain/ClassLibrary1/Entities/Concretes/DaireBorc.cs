@@ -11,9 +11,11 @@ namespace Vallet.Domain.Entities.Concretes
     { 
         public decimal DebtAmount { get; set; }
         public DateTime DebtDueDate { get; set; }
-        public int DebtCreatedByAdminId { get; set; }
+        public string DebtCreatedByAdminId { get; set; }
         public string? DebtDescription { get; set; }
+        public Guid? DaireId { get; set; }
         public Daire? Daire { get; set; }
+        public Guid? UsersId { get; set; }
         public User?  Users { get; set; }
     }
 }
