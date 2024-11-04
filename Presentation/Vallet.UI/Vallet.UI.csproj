@@ -14,4 +14,8 @@
     <Folder Include="Models\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Vallet.Application\Vallet.Application.csproj" />
+  </ItemGroup>
+
 </Project>

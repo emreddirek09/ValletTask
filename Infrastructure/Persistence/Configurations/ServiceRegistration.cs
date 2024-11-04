@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Vallet.Application.Repositories;
 using Vallet.Persistence.Contexts;
 using Vallet.Persistence.Repositories;
+using Vallet.UI.Helpers.ClientHelper;
 
 namespace Vallet.Persistence.Configurations
 {
