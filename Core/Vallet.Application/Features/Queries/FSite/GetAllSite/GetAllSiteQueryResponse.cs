@@ -9,6 +9,6 @@ namespace Vallet.Application.Features.Queries.FSite.GetAllSite
 {
     public class GetAllSiteQueryResponse
     {
-        public object site { get; set; } 
+        public object Data { get; set; } 
     }
 }

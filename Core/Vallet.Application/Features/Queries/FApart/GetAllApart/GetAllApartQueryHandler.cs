@@ -24,7 +24,7 @@ namespace Vallet.Application.Features.Queries.FApart.GetAllApart
 
             return new()
             {
-                Apart = response
+                Data = response
             };
         }
     }

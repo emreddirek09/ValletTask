@@ -8,6 +8,6 @@ namespace Vallet.Application.Features.Queries.FApart.GetAllApart
 {
     public class GetAllApartQueryResponse
     {
-        public object Apart { get; set; }
+        public object Data { get; set; }
     }
 }

@@ -9,7 +9,7 @@ namespace Vallet.Application.Features.Queries.FBlock.GetAllBlock
 {
     public class GetAllBlockQueryResponse
     {
-        public object Blok { get; set; }
+        public object Data { get; set; }
 
     }
 }

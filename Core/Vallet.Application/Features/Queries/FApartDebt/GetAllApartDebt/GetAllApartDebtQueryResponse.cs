@@ -8,6 +8,6 @@ namespace Vallet.Application.Features.Queries.FApartDebt.GetAllApartDebt
 {
     public class GetAllApartDebtQueryResponse
     {
-        public object ApartDebt { get; set; }
+        public object Data { get; set; }
     }
 }

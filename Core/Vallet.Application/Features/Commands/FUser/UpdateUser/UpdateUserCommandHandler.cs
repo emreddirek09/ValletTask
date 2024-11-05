@@ -25,8 +25,7 @@ namespace Vallet.Application.Features.Commands.FUser.UpdateUser
             User user = await _userReadRepository.GetByIdAsync(request.Id);
             user.PhoneNumber = request.PhoneNumber;
             user.FullName = request.FullName;
-            user.Email = request.Email;
-            user.Role = request.Role;
+            user.Email = request.Email; 
             await _userWriteRepository.SaveAsync();
             return new();
 

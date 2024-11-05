@@ -10,16 +10,19 @@ namespace Vallet.Domain.DTO
     {
         public class Root
         {
-            public List<Site>? data { get; set; }
+            public List<Site> site { get; set; }
         }
 
         public class Site
         {
-            public string? siteName { get; set; }
-            public string? siteAddress { get; set; }
+            public string siteName { get; set; }
+            public string siteAddress { get; set; }
             public bool siteIsApartment { get; set; }
-            public string? id { get; set; }
-            public DateTime? createdTime { get; set; } 
+            public object blocks { get; set; }
+            public string id { get; set; }
+            public DateTime createdTime { get; set; }
+            public object updateTime { get; set; }
         }
+
     }
 }

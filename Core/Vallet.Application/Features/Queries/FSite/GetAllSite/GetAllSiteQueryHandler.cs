@@ -18,7 +18,7 @@ namespace Vallet.Application.Features.Queries.FSite.GetAllSite
             var _site = _siteReadRepository.GetAll(false);
             return new()
             {
-                site = _site,
+                Data = _site,
             };
         }
     }

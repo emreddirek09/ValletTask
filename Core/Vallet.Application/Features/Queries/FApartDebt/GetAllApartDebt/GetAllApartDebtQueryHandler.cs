@@ -25,7 +25,7 @@ namespace Vallet.Application.Features.Queries.FApartDebt.GetAllApartDebt
 
             return new()
             {
-                ApartDebt = response
+                Data = response
             };
         }
     }

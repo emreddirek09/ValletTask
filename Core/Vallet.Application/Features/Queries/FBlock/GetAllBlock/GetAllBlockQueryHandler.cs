@@ -18,7 +18,7 @@ namespace Vallet.Application.Features.Queries.FBlock.GetAllBlock
             var blok = _blokReadRepository.GetAll(false);
             return new()
             {
-                Blok = blok
+                Data = blok
 
             };
 

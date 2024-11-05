@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Vallet.Application.BaseResult.Concretes;
+using Vallet.Application.Features.Commands.FUser.UpdateUser;
 using Vallet.Application.Features.Queries.FUser.GetByIdUser;
 using Vallet.Domain.DTO;
 using Vallet.UI.Helpers.ClientHelper;
@@ -52,19 +53,19 @@ namespace Vallet.UI.Controllers.Admin
         [HttpGet]
         public async Task<IActionResult> UserUpdate(string Id)
         {
-            DataResult<GetByIdUserQueryResponse>? result = new();
+            DataResult<DtoUser.Datum>? result = new();
 
-             result = await _valletClient.GetNoRoot<GetByIdUserQueryResponse>($"Users/GetById/{Id}");
+            result = await _valletClient.GetNoRoot<DtoUser.Datum>($"Users/GetById/{Id}");
             if (result.Success) 
                 return View(result.Data);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index"); 
         }
 
-        [HttpPost]
-        public async Task<IActionResult> UserUpdate(GetByIdUserQueryResponse dto)
+        [HttpPut]
+        public async Task<IActionResult> UserUpdate(UpdateUserCommandRequest dto)
         {
-            var result = await _valletClient.PostAsync<GetByIdUserQueryResponse, bool>(dto, "Users/PuT");
+            var result = await _valletClient.PostAsync<UpdateUserCommandRequest, bool>(dto, "Users/PuT");
             if (result.Success)
             {
                 return RedirectToAction("index");

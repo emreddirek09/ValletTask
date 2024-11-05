@@ -48,7 +48,7 @@ namespace Vallet.API.Controllers
         public async Task<IActionResult> PuT(UpdateUserCommandRequest userCommandRequest)
         {
             UpdateUserCommandResponse response = await _mediator.Send(userCommandRequest);
-            return Ok();
+            return Ok(response);
         }
          
         [HttpDelete("{id}")]

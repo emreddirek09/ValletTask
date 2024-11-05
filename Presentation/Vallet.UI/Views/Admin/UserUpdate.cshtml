@@ -1,5 +1,4 @@
-﻿@using Vallet.Application.Features.Queries.FUser.GetByIdUser;
-@model GetByIdUserQueryResponse;
+﻿ @model Vallet.Domain.DTO.DtoUser.Datum
 
 @{
     ViewData["Title"] = "Update";
@@ -10,31 +9,36 @@
         <div class="live-preview">
             <div class="card">
                 <div class="card-body checkout-tab">
-                    <form asp-action="Update" method="post" asp-route-id="@Model.id">
+
+
+                    <form asp-action="UserUpdate" method="post" asp-contoroller="Admin">
+
+                        <input type="hidden" name="id" class="form-control" value="@Model.id" required />
+
                         <div class="mb-3">
                             <label for="customername-field" class="form-label">Müşteri İsmi</label>
-                            <input type="text" name="FullName" class="form-control" value="@Model.fullName" required />
+                            <input type="text" name="fullName" class="form-control" value="@Model.fullName" required />
                         </div>
 
                         <div class="mb-3">
                             <label for="email-field" class="form-label">Email</label>
-                            <input type="email" name="Email" class="form-control" value="@Model.email" required />
+                            <input type="email" name="email" class="form-control" value="@Model.email" required />
                         </div>
 
                         <div class="mb-3">
                             <label for="phone-field" class="form-label">Telefon</label>
-                            <input type="text" name="PhoneNumber" class="form-control" value="@Model.phoneNumber" required />
+                            <input type="text" name="phoneNumber" class="form-control" value="@Model.phoneNumber" required />
                         </div>
 
-                     @*     <div>
-                            <label for="status-field" class="form-label">Role Seçin</label>
-                            <select class="form-control" name="Role">
-                                <option value="Admin" @(Model.role == "Admin" ? "selected" : "")>Admin</option>
-                                <option value="User" @(Model.role == "User" ? "selected" : "")>User</option>
-                            </select>
-                        </div>  *@
+                        @*   <div>
+                        <label for="status-field" class="form-label">Role Seçin</label>
+                        <select class="form-control" name="Role">
+                        <option value="Admin" @(Model == "Admin" ? "selected" : "")>Admin</option>
+                        <option value="User" @(Model.role == "User" ? "selected" : "")>User</option>
+                        </select>
+                        </div> *@
 
-                        <button type="submit" class="btn btn-success">Güncelle</button>
+                        <button type="submit" class="btn btn-success" name="UserUpdate">Güncelle</button>
                     </form>
 
                 </div>

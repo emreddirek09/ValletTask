@@ -20,7 +20,7 @@
                                     <div class="row g-4 mb-3">
                                         <div class="col-sm-auto">
                                             <div>
-                                                <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="ri-add-line align-bottom me-1"></i> Add</button>
+                                                <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="ri-add-line align-bottom me-1"></i>Müşteri Ekle</button>
                                             </div>
                                         </div>
                                         <div class="col-sm">
@@ -165,54 +165,7 @@
                 </div>
             </div>
 
-            <div class="modal fade" id="showModalUpdate" tabindex="-1" aria-labelledby="exampleModalLabel"
-                 aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header bg-light p-3">
-                            <h5 class="modal-title" id="exampleModalLabel"></h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-                                    id="close-modal"></button>
-                        </div>
-                        <form asp-action="Update" asp-controller="Admin" method="post" asp-route-id="@Model.FirstOrDefault(x=>x.id==$"{_selectUserId}")">
-
-                            <div class="modal-body">
-                                <input type="hidden" id="itemIdInput" name="itemId" />
-
-                                <div class="mb-3">
-                                    <label for="customername-field" class="form-label">Müşteri İsmi</label>
-                                    <input type="text" name="FullName" class="form-control" value="@Model.FirstOrDefault().fullName" required />
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="email-field" class="form-label">Email</label>
-                                    <input type="email" name="Email" class="form-control" value="@Model.FirstOrDefault().email" required />
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="phone-field" class="form-label">Telefon</label>
-                                    <input type="text" name="PhoneNumber" class="form-control" value="@Model.FirstOrDefault().phoneNumber" required />
-                                </div>
-
-                                @*  <div>
-                                <label for="status-field" class="form-label">Role Seçin</label>
-                                <select class="form-control" name="Role">
-                                <option value="Admin" @(Model == "Admin" ? "selected" : "")>Admin</option>
-                                <option value="User" @(Model.FirstOrDefault().role == "User" ? "selected" : "")>User</option>
-                                </select>
-                                </div>  *@
-                            </div>
-                            <div class="modal-footer">
-                                <div class="hstack gap-2 justify-content-end">
-                                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Kapat</button>
-                                    <button type="submit" class="btn btn-success" id="add-btn">Güncelle</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
+           
             <!-- Modal -->
             <div class="modal fade zoomIn" id="deleteRecordModal" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
@@ -250,19 +203,4 @@
         document.getElementById("Id").value = userId;
     };
 </script>
-
-
-<script>
-    // Modal açılmadan önce data-id değerini al
-    $('#showModalUpdate').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget);  // Tıklanan butonu al
-        var itemId = button.data('id');      // Butondan data-id'yi al
-
-        if (itemId) {
-            var modal = $(this);
-            modal.find('.modal-body #itemIdInput').val(itemId);  // Hidden input'a ID'yi ekliyoruz
-        } else {
-            console.log('ID boş geldi!');  // Hata mesajı
-        }
-    });
-</script>
+ 

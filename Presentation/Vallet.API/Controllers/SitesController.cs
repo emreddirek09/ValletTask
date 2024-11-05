@@ -47,14 +47,15 @@ namespace Vallet.API.Controllers
         public async Task<IActionResult> PuT([FromBody] UpdateSiteCommandRequest queryRequest)
         {
             UpdateSiteCommandResponse response = await _mediator.Send(queryRequest);
-            return Ok();
-        } 
+            return Ok(response);
+        }
+
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete([FromRoute] string id)
         {
-            var command = new RemoveUserCommandRequest { Id = id };
-            RemoveUserCommandResponse response = await _mediator.Send(command);
+            var command = new RemoveSiteCommandRequest { Id = id };
+            RemoveSiteCommandResponse response = await _mediator.Send(command);
             return Ok(response);
         }
 

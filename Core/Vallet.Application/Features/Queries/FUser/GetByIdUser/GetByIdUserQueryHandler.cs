@@ -15,16 +15,11 @@ namespace Vallet.Application.Features.Queries.FUser.GetByIdUser
 
         public async Task<GetByIdUserQueryResponse> Handle(GetByIdUserQueryRequest request, CancellationToken cancellationToken)
         {
-            User user = await _userReadRepository.GetByIdAsync(request.Id,false);
+            var user = await _userReadRepository.GetByIdAsync(request.Id,false);
 
             return new()
             {
-                id = user.Id.ToString(),
-                phoneNumber = user.PhoneNumber,
-                email = user.Email,
-                fullName = user.FullName,
-                role = user.Role,
-                creteTime = Convert.ToDateTime(user.CreatedTime)
+                Data = user   
                 
             };
         }
