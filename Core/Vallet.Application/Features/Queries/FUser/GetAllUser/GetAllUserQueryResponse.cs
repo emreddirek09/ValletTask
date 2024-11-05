@@ -8,7 +8,7 @@ namespace Vallet.Application.Features.Queries.FUser.GetAllUser
 {
     public class GetAllUserQueryResponse
     {
-        public object Users { get; set; }
+        public object Data { get; set; }
 
     }
 }

@@ -9,7 +9,7 @@ using Vallet.Application.Repositories;
 
 namespace Vallet.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class BlockController : ControllerBase
     {

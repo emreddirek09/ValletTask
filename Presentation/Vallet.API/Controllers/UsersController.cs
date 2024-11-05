@@ -11,8 +11,8 @@ using Vallet.Domain.Entities.Concretes;
 
 namespace Vallet.API.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
+    [Route("api/[controller]/[action]")]
+    [ApiController] 
     public class UsersController : ControllerBase
     {
         readonly private IMediator _mediator;
@@ -51,7 +51,7 @@ namespace Vallet.API.Controllers
             return Ok();
         }
         
-        [HttpDelete("{Id}")]
+        [HttpGet("{Id}")]
         public async Task<IActionResult> Delete([FromRoute] RemoveUserCommandRequest removeUserCommand)
         {
             RemoveUserCommandResponse response = await _mediator.Send(removeUserCommand);

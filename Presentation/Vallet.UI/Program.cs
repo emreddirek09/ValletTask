@@ -1,4 +1,5 @@
 using System.Net;
+using System.Text.Json;
 using Vallet.UI.Helpers.ClientHelper;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +14,13 @@ builder.Services
         new HttpClientHandler { AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate });
 #endregion
 
+builder.Services
+    .AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.DictionaryKeyPolicy = JsonNamingPolicy.CamelCase;
+        options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+    });
 
 var app = builder.Build();
 

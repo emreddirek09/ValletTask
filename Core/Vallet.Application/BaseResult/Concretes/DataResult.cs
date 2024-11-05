@@ -9,6 +9,8 @@ namespace Vallet.Application.BaseResult.Concretes
 {
     public class DataResult<T> : Result, IDataResult<T>
     {
+        public T? Data { get; set; }
+
         public DataResult()
         {
 
@@ -22,6 +24,5 @@ namespace Vallet.Application.BaseResult.Concretes
         {
             Data = data;
         }
-        public T? Data { get; set; }
     }
 }

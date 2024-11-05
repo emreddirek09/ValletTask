@@ -9,7 +9,7 @@ using Vallet.Application.Features.Queries.FApart.GetByIdApart;
 
 namespace Vallet.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class ApartController : ControllerBase
     {

@@ -24,7 +24,7 @@ namespace Vallet.Application.Features.Queries.FUser.GetAllUser
 
             return new()
             {
-                Users = user
+                Data = user
             };
         }
     }

@@ -9,7 +9,7 @@ using Vallet.Application.Features.Queries.FApartDebt.GetByIdApartDebt;
 
 namespace Vallet.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class ApartDebtController : ControllerBase
     {

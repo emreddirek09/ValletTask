@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Text;
 using Vallet.Application.BaseResult.Concretes;
+using Vallet.Domain.DTO;
 using Vallet.UI.Helpers.AppSettings;
 
 namespace Vallet.UI.Helpers.ClientHelper
@@ -38,6 +39,8 @@ namespace Vallet.UI.Helpers.ClientHelper
                     {
                         string stringResult = await response.Content.ReadAsStringAsync();
                         result = JsonConvert.DeserializeObject<DataResult<TResult>>(stringResult);
+                        result.Success = true;
+
                     }
                 }
                 catch (Exception ex)
@@ -49,7 +52,7 @@ namespace Vallet.UI.Helpers.ClientHelper
                     }
                 }
             }
-            return result ?? new ErrorDataResult<TResult>("Internal Server Error");
+            return result;
         }
 
         public async Task<DataResult<T>> Add<T>(T root, string uri)
@@ -74,6 +77,8 @@ namespace Vallet.UI.Helpers.ClientHelper
                     {
                         string stringResult = await response.Content.ReadAsStringAsync();
                         result = JsonConvert.DeserializeObject<DataResult<T>>(stringResult);
+                        result.Success = true;
+
                     }
                 }
                 catch (Exception ex)
@@ -85,7 +90,7 @@ namespace Vallet.UI.Helpers.ClientHelper
                     }
                 }
             }
-            return result ?? new ErrorDataResult<T>("Internal Server Error");
+            return result;
         }
 
         public async Task<DataResult<T>> Update<T>(T root, string uri)
@@ -109,6 +114,8 @@ namespace Vallet.UI.Helpers.ClientHelper
                     {
                         string stringResult = await response.Content.ReadAsStringAsync();
                         result = JsonConvert.DeserializeObject<DataResult<T>>(stringResult);
+                        result.Success = true;
+
                     }
                 }
                 catch (Exception ex)
@@ -120,9 +127,9 @@ namespace Vallet.UI.Helpers.ClientHelper
                     }
                 }
             }
-            return result ?? new ErrorDataResult<T>("Internal Server Error");
+            return result;
         }
-         
+
         public async Task<DataResult<T>> Get<T>(string uri, T root)
         {
             DataResult<T>? result = new();
@@ -135,16 +142,18 @@ namespace Vallet.UI.Helpers.ClientHelper
                     result.Message = "Url Not Found";
                 }
                 else
-                {
+                { 
                     string stringResult = await response.Content.ReadAsStringAsync();
                     result = JsonConvert.DeserializeObject<DataResult<T>>(stringResult);
+                    result.Success = true;
+
                 }
             }
             catch (Exception ex)
             {
                 if (result is not null) result.Message = $"Get: {uri}. {ex}";
             }
-            return result ?? new ErrorDataResult<T>("Internal Server Error");
+            return result;
         }
 
         public async Task<DataResult<T>> GetNoRoot<T>(string uri)
@@ -159,16 +168,18 @@ namespace Vallet.UI.Helpers.ClientHelper
                     result.Message = "Url Not Found";
                 }
                 else
-                {
+                { 
                     string stringResult = await response.Content.ReadAsStringAsync();
                     result = JsonConvert.DeserializeObject<DataResult<T>>(stringResult);
+                    result.Success = true;
+
                 }
             }
             catch (Exception ex)
             {
                 if (result is not null) result.Message = $"Get: {uri}. {ex}";
             }
-            return result ?? new ErrorDataResult<T>("Internal Server Error");
+            return result;
         }
 
         public async Task<DataResult<List<T>>> GetList<T>(string uri)
@@ -186,13 +197,15 @@ namespace Vallet.UI.Helpers.ClientHelper
                 {
                     var stringResult = await response.Content.ReadAsStringAsync();
                     result = JsonConvert.DeserializeObject<DataResult<List<T>>>(stringResult);
+                    result.Success = true;
+
                 }
             }
             catch (Exception ex)
             {
                 if (result is not null) result.Message = $"Get: {uri}. {ex}";
             }
-            return result ?? new ErrorDataResult<List<T>>("Internal Server Error");
+            return result;
         }
 
         public async Task<DataResult<T>> Delete<T>(string uri)
@@ -214,6 +227,8 @@ namespace Vallet.UI.Helpers.ClientHelper
                 {
                     string stringResult = await response.Content.ReadAsStringAsync();
                     result = JsonConvert.DeserializeObject<DataResult<T>>(stringResult);
+                    result.Success = true;
+
                 }
             }
             catch (Exception ex)
@@ -224,7 +239,7 @@ namespace Vallet.UI.Helpers.ClientHelper
                     result.Message = $"Delete: {uri}. {ex}";
                 }
             }
-            return result ?? new ErrorDataResult<T>("Internal Server Error");
+            return result;
         }
     }
 }
