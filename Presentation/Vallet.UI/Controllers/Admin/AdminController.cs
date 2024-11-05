@@ -50,7 +50,7 @@ namespace Vallet.UI.Controllers.Admin
         }
 
         [HttpGet]
-        public async Task<IActionResult> Update(string Id)
+        public async Task<IActionResult> UserUpdate(string Id)
         {
             DataResult<GetByIdUserQueryResponse>? result = new();
 
@@ -62,7 +62,7 @@ namespace Vallet.UI.Controllers.Admin
         }
 
         [HttpPost]
-        public async Task<IActionResult> Update(GetByIdUserQueryResponse dto)
+        public async Task<IActionResult> UserUpdate(GetByIdUserQueryResponse dto)
         {
             var result = await _valletClient.PostAsync<GetByIdUserQueryResponse, bool>(dto, "Users/PuT");
             if (result.Success)

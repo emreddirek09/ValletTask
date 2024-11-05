@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Vallet.UI.Controllers.User
+namespace Vallet.UI.Controllers.Admin
 {
-    public class UserController : Controller
+    public class DebtController : Controller
     {
         public IActionResult Index()
         {

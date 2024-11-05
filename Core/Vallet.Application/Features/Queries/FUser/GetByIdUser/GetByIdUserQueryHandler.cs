@@ -24,8 +24,7 @@ namespace Vallet.Application.Features.Queries.FUser.GetByIdUser
                 email = user.Email,
                 fullName = user.FullName,
                 role = user.Role,
-                creteTime = Convert.ToDateTime(user.CreatedTime),
-                updateTime = Convert.ToDateTime(user.UpdateTime)
+                creteTime = Convert.ToDateTime(user.CreatedTime)
                 
             };
         }

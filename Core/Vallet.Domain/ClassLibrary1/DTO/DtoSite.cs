@@ -6,11 +6,20 @@ using System.Threading.Tasks;
 
 namespace Vallet.Domain.DTO
 {
-    internal class DtoSite
+    public class DtoSite
     {
-        public string Id { get; set; }
-        public string? SiteName { get; set; }
-        public string? SiteAddress { get; set; }
-        public bool SiteIsApartment { get; set; }
+        public class Root
+        {
+            public List<Site>? data { get; set; }
+        }
+
+        public class Site
+        {
+            public string? siteName { get; set; }
+            public string? siteAddress { get; set; }
+            public bool siteIsApartment { get; set; }
+            public string? id { get; set; }
+            public DateTime? createdTime { get; set; } 
+        }
     }
 }

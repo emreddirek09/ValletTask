@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Vallet.Application.Features.Queries.FApart.GetAllApart;
 using Vallet.Application.Repositories;
+using Vallet.Domain.Entities.Concretes;
 
 namespace Vallet.Application.Features.Queries.FApartDebt.GetAllApartDebt
 {
@@ -20,7 +21,7 @@ namespace Vallet.Application.Features.Queries.FApartDebt.GetAllApartDebt
          
         public async Task<GetAllApartDebtQueryResponse> Handle(GetAllApartDebtQueryRequest request, CancellationToken cancellationToken)
         {
-            var response = _daireBorcReadRepository.GetAll();
+            var response =_daireBorcReadRepository.GetAll();
 
             return new()
             {

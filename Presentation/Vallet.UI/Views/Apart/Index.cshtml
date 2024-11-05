@@ -1,0 +1,87 @@
+﻿@using Vallet.Domain.DTO
+@model DtoDaire
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xxl-12 col-md-12 col-lg-12">
+        <div class="live-preview">
+            <div class="card">
+                <div class="card-body checkout-tab">
+                    <form action="GET">
+                        <div class="card-body">
+                            <div class="card-body">
+                                <div id="customerList">
+                                    <div class="row g-4 mb-3">
+                                        <div class="col-sm-auto">
+                                            <div>
+                                                <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="ri-add-line align-bottom me-1"></i> Add</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm">
+                                            <div class="d-flex justify-content-sm-end">
+                                                <div class="search-box ms-2">
+                                                    <input type="text" class="form-control search" placeholder="Search...">
+                                                    <i class="ri-search-line search-icon"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="table-responsive table-card mt-3 mb-1">
+                                        <table class="table align-middle table-nowrap" id="customerTable">
+                                            <thead class="table-light">
+                                                <tr>
+                                                    <th class="sort" data-sort="customer_name">Daire Numarası</th>
+                                                    <th class="sort" data-sort="email">Apartman Numarası</th>
+                                                    <th class="sort" data-sort="phone">Daire Sakini</th>
+                                                    <th class="sort" data-sort="date">Kayıt Tarihi</th>
+                                                    <th class="sort" data-sort="status">Rol</th>
+                                                    <th class="sort" data-sort="action">Güncelle/Sil</th>
+                                                </tr>
+                                            </thead>
+                                            @*     <tbody class="list form-check-all">
+                                            @foreach (var item in Model)
+                                            {
+                                            <tr>
+                                            <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td>
+
+                                            <td class="customer_name">@item.fullName</td>
+                                            <td class="email">@item.email</td>
+                                            <td class="phone">@item.phoneNumber</td>
+                                            <td class="date">@item.createdTime</td>
+                                            <td class="status"><span class="badge badge-soft-success ">@item.role</span></td>
+                                            <td>
+                                            <div class="d-flex gap-2">
+                                            <div class="edit">
+
+
+                                            <a href="/Admin/UserUpdate/@item.id" class="btn btn-sm btn-success edit-item-btn">Güncelle</a>
+
+
+                                            </div>
+                                            <div class="remove">
+                                            <button asp-action="DeleteUser" asp-controller="Admin" onclick="setDeleteUserId('@item.id')"
+                                            data-bs-toggle="modal" data-bs-target="#deleteRecordModal"
+                                            type="button" class="btn btn-sm btn-soft-success btn-circle mr-2">
+                                            Sil
+                                            </button>
+                                            </div>
+                                            </div>
+                                            </td>
+                                            </tr>
+                                            }
+                                            </tbody> *@
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+

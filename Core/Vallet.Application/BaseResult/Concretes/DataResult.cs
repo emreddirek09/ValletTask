@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿ 
 using Vallet.Application.BaseResult.Abstracts;
 
 namespace Vallet.Application.BaseResult.Concretes

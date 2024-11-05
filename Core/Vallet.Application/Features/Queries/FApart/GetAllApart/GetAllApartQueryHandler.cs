@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Vallet.Application.Repositories;
+using Vallet.Domain.Entities.Concretes;
 
 namespace Vallet.Application.Features.Queries.FApart.GetAllApart
 {
@@ -19,7 +20,7 @@ namespace Vallet.Application.Features.Queries.FApart.GetAllApart
 
         public async Task<GetAllApartQueryResponse> Handle(GetAllApartQueryRequest request, CancellationToken cancellationToken)
         {
-            var response = _daireReadRepository.GetAll();
+           var response = _daireReadRepository.GetAll();
 
             return new()
             {

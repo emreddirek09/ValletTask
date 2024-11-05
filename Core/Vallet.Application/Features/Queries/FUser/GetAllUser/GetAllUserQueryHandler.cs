@@ -20,7 +20,7 @@ namespace Vallet.Application.Features.Queries.FUser.GetAllUser
 
         public async Task<GetAllUserQueryResponse> Handle(GetAllUserQueryRequest request, CancellationToken cancellationToken)
         {
-            var user = _userReadRepository.GetAll(false);
+            var user =  _userReadRepository.GetAll(false);
 
             return new()
             {
