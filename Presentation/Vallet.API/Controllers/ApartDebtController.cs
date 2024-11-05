@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Vallet.Application.Features.Commands.FApartDebt.CreateApartDebt;
 using Vallet.Application.Features.Commands.FApartDebt.RemoveApartDebt;
 using Vallet.Application.Features.Commands.FApartDebt.UpdateApartDebt;
+using Vallet.Application.Features.Commands.FUser.RemoveUser;
 using Vallet.Application.Features.Queries.FApartDebt.GetAllApartDebt;
 using Vallet.Application.Features.Queries.FApartDebt.GetByIdApartDebt;
 
@@ -50,11 +51,13 @@ namespace Vallet.API.Controllers
             return Ok();
         }
 
-        [HttpDelete("{Id}")]
-        public async Task<IActionResult> Delete([FromRoute] RemoveApartDebtCommandRequest queryRequest)
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete([FromRoute] string id)
         {
-            RemoveApartDebtCommandResponse response = await _mediator.Send(queryRequest);
-            return Ok();
+            var command = new RemoveUserCommandRequest { Id = id };
+            RemoveUserCommandResponse response = await _mediator.Send(command);
+            return Ok(response);
         }
     }
 }

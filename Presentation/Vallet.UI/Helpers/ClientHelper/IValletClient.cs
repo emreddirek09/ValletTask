@@ -9,7 +9,7 @@ namespace Vallet.UI.Helpers.ClientHelper
         Task<DataResult<T>> Get<T>(string uri, T root);
         Task<DataResult<T>> GetNoRoot<T>(string uri);
         Task<DataResult<List<T>>> GetList<T>(string uri);
-        Task<DataResult<T>> Delete<T>(string uri);
+        Task<DataResult<T>> DeleteAync<T>(string uri);
         Task<DataResult<TResult>> PostAsync<T, TResult>(T root, string uri);
     }
 }

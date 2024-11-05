@@ -7,11 +7,16 @@ using System.Threading.Tasks;
 namespace Vallet.Application.Features.Queries.FUser.GetByIdUser
 {
     public class GetByIdUserQueryResponse
-    {
-        public string Id { get; set; }
-        public string? FullName { get; set; }
-        public string? Email { get; set; }
-        public string? PhoneNumber { get; set; }
-        public string? Role { get; set; }
+    { 
+
+        public string id { get; set; }
+        public string fullName { get; set; }
+        public string email { get; set; }
+        public string phoneNumber { get; set; }
+        public string role { get; set; }
+        public DateTime creteTime { get; set; }
+        public DateTime updateTime { get; set; }
+
+
     }
 }

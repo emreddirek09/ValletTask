@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Vallet.Application.BaseResult.Concretes;
+using Vallet.Application.Features.Queries.FUser.GetByIdUser;
 using Vallet.Domain.DTO;
 using Vallet.UI.Helpers.ClientHelper;
-using static Vallet.Domain.DTO.DtoUser;
 
 namespace Vallet.UI.Controllers.Admin
 {
@@ -13,15 +13,6 @@ namespace Vallet.UI.Controllers.Admin
         public AdminController(IValletClient valletClient)
         {
             _valletClient = valletClient;
-        } 
-
-        public async Task<IActionResult> Index2()
-        {
-            DataResult<List<DtoUser.Datum>> list = new();
-
-            list = await _valletClient.GetNoRoot<List<DtoUser.Datum>>("Users");
-
-            return View(list.Data);
         }
 
         public async Task<IActionResult> Index()
@@ -34,14 +25,50 @@ namespace Vallet.UI.Controllers.Admin
         }
 
         [HttpPost]
-        public async Task<IActionResult> DeleteUser(string Id)
+        public async Task<IActionResult> UserCreate(DtoUser.Datum dto)
         {
-            var result = await _valletClient.GetNoRoot<bool>("Users/Delete/?Id=" + Id);
+            var result = await _valletClient.PostAsync<DtoUser.Datum, bool>(dto, "Users/Post");
             if (result.Success)
-            { 
+            {
                 return RedirectToAction("index");
             }
-             
+            return RedirectToAction("index");
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteUser(string Id)
+        { 
+            var result = await _valletClient.DeleteAync<bool>($"Users/Delete/{Id}");
+
+            if (result.Success)
+            {
+                return RedirectToAction("index");
+            }
+
+            return RedirectToAction("index");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Update(string Id)
+        {
+            DataResult<GetByIdUserQueryResponse>? result = new();
+
+             result = await _valletClient.GetNoRoot<GetByIdUserQueryResponse>($"Users/GetById/{Id}");
+            if (result.Success) 
+                return View(result.Data);
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Update(GetByIdUserQueryResponse dto)
+        {
+            var result = await _valletClient.PostAsync<GetByIdUserQueryResponse, bool>(dto, "Users/PuT");
+            if (result.Success)
+            {
+                return RedirectToAction("index");
+            }
             return RedirectToAction("index");
         }
     }

@@ -19,11 +19,14 @@ namespace Vallet.Application.Features.Queries.FUser.GetByIdUser
 
             return new()
             {
-                Id = user.Id.ToString(),
-                PhoneNumber = user.PhoneNumber,
-                Email = user.Email,
-                FullName = user.FullName,
-                Role = user.Role
+                id = user.Id.ToString(),
+                phoneNumber = user.PhoneNumber,
+                email = user.Email,
+                fullName = user.FullName,
+                role = user.Role,
+                creteTime = Convert.ToDateTime(user.CreatedTime),
+                updateTime = Convert.ToDateTime(user.UpdateTime)
+                
             };
         }
     }

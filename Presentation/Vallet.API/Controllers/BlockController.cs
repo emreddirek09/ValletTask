@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Vallet.Application.Features.Commands.FBlock.CreateBlock;
 using Vallet.Application.Features.Commands.FBlock.RemoveBlock;
 using Vallet.Application.Features.Commands.FBlock.UpdateBlock;
+using Vallet.Application.Features.Commands.FUser.RemoveUser;
 using Vallet.Application.Features.Queries.FBlock.GetAllBlock;
 using Vallet.Application.Features.Queries.FBlock.GetByIdBlock;
 using Vallet.Application.Repositories;
@@ -49,11 +50,14 @@ namespace Vallet.API.Controllers
             return Ok();
         }
 
-        [HttpDelete("{Id}")]
-        public async Task<IActionResult> Delete([FromRoute] RemoveBlockCommandRequest queryRequest)
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete([FromRoute] string id)
         {
-            RemoveBlockCommandResponse response = await _mediator.Send(queryRequest);
-            return Ok();
+            var command = new RemoveUserCommandRequest { Id = id };
+            RemoveUserCommandResponse response = await _mediator.Send(command);
+            return Ok(response);
+
         }
     }
 }

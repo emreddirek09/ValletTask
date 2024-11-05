@@ -4,6 +4,10 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+
+@{
+    string _selectUserId = "";
+}
 <div class="row">
     <div class="col-xxl-12 col-md-12 col-lg-12">
         <div class="live-preview">
@@ -46,22 +50,32 @@
                                                 {
                                                     <tr>
                                                         <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td>
+
                                                         <td class="customer_name">@item.fullName</td>
                                                         <td class="email">@item.email</td>
                                                         <td class="phone">@item.phoneNumber</td>
                                                         <td class="date">@item.createdTime</td>
-                                                        <td class="customer_name">@item.id</td>
                                                         <td class="status"><span class="badge badge-soft-success ">@item.role</span></td>
                                                         <td>
                                                             <div class="d-flex gap-2">
                                                                 <div class="edit">
-                                                                    <button class="btn btn-sm btn-success edit-item-btn"
-                                                                            data-bs-toggle="modal" data-bs-target="#showModal">
-                                                                        Güncelle
-                                                                    </button>
+
+                                                                    @*   <button type="button"
+                                                                asp-action="Update"
+                                                                asp-controller="Admin"
+                                                                class="btn btn-sm btn-success edit-item-btn"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#showModalUpdate"
+                                                                data-id="@item.id">
+                                                                Güncelle
+                                                                </button> *@
+
+                                                                    <a href="/Admin/Update/@item.id" class="btn btn-sm btn-success edit-item-btn">Güncelle</a>
+
+
                                                                 </div>
                                                                 <div class="remove">
-                                                                    <button id="bEdit" onclick="DeleteUser('@item.id')"
+                                                                    <button asp-action="DeleteUser" asp-controller="Admin" onclick="setDeleteUserId('@item.id')"
                                                                             data-bs-toggle="modal" data-bs-target="#deleteRecordModal"
                                                                             type="button" class="btn btn-sm btn-soft-success btn-circle mr-2">
                                                                         Sil
@@ -94,7 +108,7 @@
                                             </a>
                                             <ul class="pagination listjs-pagination mb-0"></ul>
                                             <a class="page-item pagination-next" href="#">
-                                                İleris
+                                                İleri
                                             </a>
                                         </div>
                                     </div>
@@ -104,7 +118,6 @@
                     </form>
                 </div>
             </div>
-
             <div class="modal fade" id="showModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                  aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
@@ -114,44 +127,92 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
                                     id="close-modal"></button>
                         </div>
-                        <form>
+                        <form asp-action="UserCreate" method="post" asp-contoroller="Admin">
                             <div class="modal-body">
 
                                 <div class="mb-3">
-                                    <label for="customername-field" class="form-label">Adı Soyadı</label>
-                                    <input type="text" id="customername-field" class="form-control" placeholder="Ad Soyad Giriniz" required />
+                                    <label for="customername-field" class="form-label">Müşteri İsmi</label>
+                                    <input type="text" name="fullname" class="form-control" placeholder="isim giriniz" required />
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="email-field" class="form-label">EPosta</label>
-                                    <input type="email" id="email-field" class="form-control" placeholder="EPosta Adresini Giriniz" required />
+                                    <label for="email-field" class="form-label">Email</label>
+                                    <input type="email" name="email" class="form-control" placeholder="Email giriniz" required />
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="phone-field" class="form-label">Telefon</label>
-                                    <input type="text" id="phone-field" class="form-control" placeholder="Telefon Numarası Giriniz" required />
+                                    <input type="text" name="phoneNumber" class="form-control" placeholder="Telefon giriniz" required />
                                 </div>
 
                                 <div>
-                                    <label for="status-field" class="form-label">Rol</label>
-                                    <select class="form-control" data-trigger name="status-field" id="status-field">
-                                        <option value="">Rol Seçin</option>
-                                        <option value="Active">Admin</option>
-                                        <option value="Block">User</option>
+                                    <label for="status-field" class="form-label">Role Seçin</label>
+                                    <select class="form-control" name="role">
+                                        <option value="">Role</option>
+                                        <option value="Admin">Admin</option>
+                                        <option value="User">User</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="modal-footer">
                                 <div class="hstack gap-2 justify-content-end">
                                     <button type="button" class="btn btn-light" data-bs-dismiss="modal">Kapat</button>
-                                    <button type="submit" class="btn btn-success" id="add-btn">Kullanıcı Ekle</button>
-                                    <button type="button" class="btn btn-success" id="edit-btn">Güncelle</button>
+                                    <button type="submit" class="btn btn-success" id="add-btn">Ekle</button>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
+
+            <div class="modal fade" id="showModalUpdate" tabindex="-1" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header bg-light p-3">
+                            <h5 class="modal-title" id="exampleModalLabel"></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                                    id="close-modal"></button>
+                        </div>
+                        <form asp-action="Update" asp-controller="Admin" method="post" asp-route-id="@Model.FirstOrDefault(x=>x.id==$"{_selectUserId}")">
+
+                            <div class="modal-body">
+                                <input type="hidden" id="itemIdInput" name="itemId" />
+
+                                <div class="mb-3">
+                                    <label for="customername-field" class="form-label">Müşteri İsmi</label>
+                                    <input type="text" name="FullName" class="form-control" value="@Model.FirstOrDefault().fullName" required />
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="email-field" class="form-label">Email</label>
+                                    <input type="email" name="Email" class="form-control" value="@Model.FirstOrDefault().email" required />
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="phone-field" class="form-label">Telefon</label>
+                                    <input type="text" name="PhoneNumber" class="form-control" value="@Model.FirstOrDefault().phoneNumber" required />
+                                </div>
+
+                                @*  <div>
+                                <label for="status-field" class="form-label">Role Seçin</label>
+                                <select class="form-control" name="Role">
+                                <option value="Admin" @(Model == "Admin" ? "selected" : "")>Admin</option>
+                                <option value="User" @(Model.FirstOrDefault().role == "User" ? "selected" : "")>User</option>
+                                </select>
+                                </div>  *@
+                            </div>
+                            <div class="modal-footer">
+                                <div class="hstack gap-2 justify-content-end">
+                                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Kapat</button>
+                                    <button type="submit" class="btn btn-success" id="add-btn">Güncelle</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
             <!-- Modal -->
             <div class="modal fade zoomIn" id="deleteRecordModal" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
@@ -164,22 +225,44 @@
                                 <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop"
                                            colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>
                                 <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
-                                    <h4>Son Kararın mı ?</h4>
-                                    <p class="text-muted mx-4 mb-0">Şimdi Silmek İstediğinize Emin misiniz ?</p>
+                                    <h4> Son Kararın Mı ?</h4>
+                                    <p class="text-muted mx-4 mb-0">Silmek istediğinden emin misin ?</p>
                                 </div>
                             </div>
                             <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
                                 <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Kapat</button>
                                 <form asp-action="DeleteUser" asp-controller="Admin" method="post">
-                                    <input type="hidden" id="userId" name="userId" />
-                                    <button type="submit" class="btn btn-danger">Kullanıcıyı Sil</button>
+                                    <input type="hidden" id="Id" name="Id" />
+                                    <button type="submit" class="btn w-sm btn-danger " name="DeleteUser">Evet! Sil</button>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!--end modal -->
         </div>
     </div>
 </div>
 
+<script>
+    function setDeleteUserId(userId) {
+        document.getElementById("Id").value = userId;
+    };
+</script>
+
+
+<script>
+    // Modal açılmadan önce data-id değerini al
+    $('#showModalUpdate').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);  // Tıklanan butonu al
+        var itemId = button.data('id');      // Butondan data-id'yi al
+
+        if (itemId) {
+            var modal = $(this);
+            modal.find('.modal-body #itemIdInput').val(itemId);  // Hidden input'a ID'yi ekliyoruz
+        } else {
+            console.log('ID boş geldi!');  // Hata mesajı
+        }
+    });
+</script>

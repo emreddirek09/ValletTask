@@ -10,8 +10,7 @@ namespace Vallet.Application.Repositories
     public interface IWriteRepository<T>:IRepository<T> where T : BaseEntity
     {
         Task<bool> AddAsync(T values);
-        Task<bool> AddRangeAsync(List<T> values);
-        bool Delete(T values);
+        Task<bool> AddRangeAsync(List<T> values); 
         bool DeleteRange(List<T> values);
         Task<bool> DeleteAsync(string id);
         bool Update(T values);

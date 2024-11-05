@@ -142,7 +142,7 @@ namespace Vallet.UI.Helpers.ClientHelper
                     result.Message = "Url Not Found";
                 }
                 else
-                { 
+                {
                     string stringResult = await response.Content.ReadAsStringAsync();
                     result = JsonConvert.DeserializeObject<DataResult<T>>(stringResult);
                     result.Success = true;
@@ -168,7 +168,7 @@ namespace Vallet.UI.Helpers.ClientHelper
                     result.Message = "Url Not Found";
                 }
                 else
-                { 
+                {
                     string stringResult = await response.Content.ReadAsStringAsync();
                     result = JsonConvert.DeserializeObject<DataResult<T>>(stringResult);
                     result.Success = true;
@@ -186,7 +186,7 @@ namespace Vallet.UI.Helpers.ClientHelper
         {
             DataResult<List<T>>? result = new();
             try
-            {
+            { 
                 HttpResponseMessage response = await _client.GetAsync(uri);
                 if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
                 {
@@ -196,8 +196,8 @@ namespace Vallet.UI.Helpers.ClientHelper
                 else
                 {
                     var stringResult = await response.Content.ReadAsStringAsync();
-                    result = JsonConvert.DeserializeObject<DataResult<List<T>>>(stringResult);
-                    result.Success = true;
+
+                    result = JsonConvert.DeserializeObject<DataResult<List<T>>>(stringResult); 
 
                 }
             }
@@ -207,8 +207,7 @@ namespace Vallet.UI.Helpers.ClientHelper
             }
             return result;
         }
-
-        public async Task<DataResult<T>> Delete<T>(string uri)
+        public async Task<DataResult<T>> DeleteAync<T>(string uri)
         {
             DataResult<T>? result = new()
             {
@@ -217,7 +216,7 @@ namespace Vallet.UI.Helpers.ClientHelper
 
             try
             {
-                HttpResponseMessage response = await _client.GetAsync(uri);
+                HttpResponseMessage response = await _client.DeleteAsync(uri);
                 if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
                 {
                     result.Success = false;
@@ -228,7 +227,6 @@ namespace Vallet.UI.Helpers.ClientHelper
                     string stringResult = await response.Content.ReadAsStringAsync();
                     result = JsonConvert.DeserializeObject<DataResult<T>>(stringResult);
                     result.Success = true;
-
                 }
             }
             catch (Exception ex)

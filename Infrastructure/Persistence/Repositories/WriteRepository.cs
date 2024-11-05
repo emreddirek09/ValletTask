@@ -39,11 +39,18 @@ namespace Vallet.Persistence.Repositories
             EntityEntry entityEntry = table.Remove(values);
             return entityEntry.State == EntityState.Deleted;
         }
-
+ 
         public async Task<bool> DeleteAsync(string id)
         {
-            T model = await table.FirstOrDefaultAsync(data => data.Id == Guid.Parse(id));
-            return Delete(model);
+            if (Guid.TryParse(id, out Guid guidId))
+            {
+                T model = await table.FirstOrDefaultAsync(data => data.Id == guidId);
+                return Delete(model);
+            }
+            else
+            { 
+                return false;
+            }
         }
 
         public bool DeleteRange(List<T> values)

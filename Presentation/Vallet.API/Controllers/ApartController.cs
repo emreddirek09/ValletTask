@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Vallet.Application.Features.Commands.FApart.CreateApart;
 using Vallet.Application.Features.Commands.FApart.RemoveApart;
 using Vallet.Application.Features.Commands.FApart.UpdateApart;
+using Vallet.Application.Features.Commands.FUser.RemoveUser;
 using Vallet.Application.Features.Queries.FApart.GetAllApart;
 using Vallet.Application.Features.Queries.FApart.GetByIdApart;
 
@@ -48,12 +49,13 @@ namespace Vallet.API.Controllers
             UpdateApartCommandResponse response = await _mediator.Send(queryRequest);
             return Ok();
         }
-
-        [HttpDelete("{Id}")]
-        public async Task<IActionResult> Delete([FromRoute] RemoveApartCommandRequest queryRequest)
+         
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete([FromRoute] string id)
         {
-            RemoveApartCommandResponse response = await _mediator.Send(queryRequest);
-            return Ok();
+            var command = new RemoveUserCommandRequest { Id = id };
+            RemoveUserCommandResponse response = await _mediator.Send(command);
+            return Ok(response);
         }
     }
 }

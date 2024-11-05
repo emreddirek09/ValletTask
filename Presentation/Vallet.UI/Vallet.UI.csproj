@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Vallet.Application\Vallet.Application.csproj" />
+    <ProjectReference Include="..\..\Core\Vallet.Domain\ClassLibrary1\Vallet.Domain.csproj" />
   </ItemGroup>
 
 </Project>

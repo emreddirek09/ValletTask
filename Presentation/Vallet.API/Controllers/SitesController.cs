@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Vallet.Application.Features.Commands.FSite.CreateSite;
 using Vallet.Application.Features.Commands.FSite.RemoveSite;
 using Vallet.Application.Features.Commands.FSite.UpdateSite;
+using Vallet.Application.Features.Commands.FUser.RemoveUser;
 using Vallet.Application.Features.Queries.FSite.GetAllSite;
 using Vallet.Application.Features.Queries.FSite.GetByIdSite;
 using Vallet.Application.Repositories;
@@ -47,13 +48,14 @@ namespace Vallet.API.Controllers
         {
             UpdateSiteCommandResponse response = await _mediator.Send(queryRequest);
             return Ok();
-        }
+        } 
 
-        [HttpDelete("{Id}")]
-        public async Task<IActionResult> Delete([FromRoute] RemoveSiteCommandRequest queryRequest)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete([FromRoute] string id)
         {
-            RemoveSiteCommandResponse response = await _mediator.Send(queryRequest);
-            return Ok();
+            var command = new RemoveUserCommandRequest { Id = id };
+            RemoveUserCommandResponse response = await _mediator.Send(command);
+            return Ok(response);
         }
 
     }

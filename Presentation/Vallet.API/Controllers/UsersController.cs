@@ -44,18 +44,19 @@ namespace Vallet.API.Controllers
             return Ok(response);
         }
 
-        [HttpPut]
-        public async Task<IActionResult> PuT([FromBody] UpdateUserCommandRequest userCommandRequest)
+        [HttpPost]
+        public async Task<IActionResult> PuT(UpdateUserCommandRequest userCommandRequest)
         {
             UpdateUserCommandResponse response = await _mediator.Send(userCommandRequest);
             return Ok();
         }
-        
-        [HttpGet("{Id}")]
-        public async Task<IActionResult> Delete([FromRoute] RemoveUserCommandRequest removeUserCommand)
+         
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete([FromRoute] string id)
         {
-            RemoveUserCommandResponse response = await _mediator.Send(removeUserCommand);
-            return Ok();
+            var command = new RemoveUserCommandRequest { Id = id };
+            RemoveUserCommandResponse response = await _mediator.Send(command);
+            return Ok(response);
         }
     }
 }
