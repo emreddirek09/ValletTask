@@ -9,13 +9,12 @@
         <div class="live-preview">
             <div class="card">
                 <div class="card-body checkout-tab">
-                    @*   <form id="testForm" method="post" asp-action="test2" asp-controller="Admin">
-                    <input name="tas" type="text" value="123" />
+                    <form method="post" asp-action="test2" asp-controller="Admin">
+                        <input name="t" type="text" value="123" />
 
-                    <button type="submit">TEST</button>e4w3s
-                    </form> *@
-
-                    <form asp-controller="Admin" asp-action="UserUpdate" method="post">
+                        <button type="submit">TEST</button>
+                    </form>
+                    <form asp-controller="Admin" asp-action="Test" method="get">
 
                         <input type="hidden" name="id" class="form-control" value="@Model.id" required />
 
@@ -50,39 +49,3 @@
         </div>
     </div>
 </div>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const form = document.getElementById("testForm");
-
-        if (form) {
-            form.addEventListener("submit", function (event) {
-                event.preventDefault(); // Formun sayfayı yenilemesini engelle
-
-                // Form verilerini al
-                const formData = new FormData(this);
-
-                // AJAX isteği oluştur
-                fetch('/Admin/test2', {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
-                    }
-                })
-                    .then(response => response.json()) // JSON olarak yanıtı işle
-                    .then(data => {
-                        if (data.success) {
-                            alert("Başarıyla gönderildi!");
-                            // İstediğiniz başka işlemler...
-                        } else {
-                            alert("Bir hata oluştu.");
-                        }
-                    })
-                    .catch(error => {
-                        console.error("Hata:", error);
-                    });
-            });
-        }
-    });
-</script>
-

@@ -579,7 +579,7 @@ const FgEmojiPicker = function (options) {
             <div>%pickerContainer%</div>
         </div>`;
 
-            const closeBtn      = this.variable.closeButton ? `<li><a class="fg-emoji-picker-close-button" href="#">${this.variable.categoryIcons.close}</a></li>` : '';
+            const closeBtn      = this.variable.closeButton ? `<li><a class="fg-emoji-picker-close-button">${this.variable.categoryIcons.close}</a></li>` : '';
             let categories      = `<ul>%categories%${closeBtn}</ul>`;
             let categoriesInner = ``;
             let outerUl         = `<div class="fg-emoji-picker-all-categories">%outerUL%</div>`;

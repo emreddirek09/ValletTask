@@ -1,0 +1,363 @@
+﻿@model Tuple<IEnumerable<Vallet.Domain.DTO.DtoBlok>, IEnumerable<SelectListItem>>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xxl-12 col-md-12 col-lg-12">
+        <div class="live-preview">
+            <div class="card">
+                <div class="card-body checkout-tab">
+                    <form action="GET">
+                        <div class="card-body">
+                            <div id="customerList">
+                                <div class="row g-4 mb-3">
+                                    <div class="col-sm-auto">
+                                        <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal">
+                                            <i class="ri-add-line align-bottom me-1"></i>Site Bilgisi Ekle
+                                        </button>
+                                    </div>
+                                    <div class="col-sm">
+                                        <div class="d-flex justify-content-sm-end">
+                                            <div class="search-box ms-2">
+                                                <input type="text" class="form-control search" placeholder="Ara...">
+                                                <i class="ri-search-line search-icon"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-responsive table-card mt-3 mb-1">
+                                    <table class="table align-middle table-nowrap" id="customerTable">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Blok İsmi</th>
+                                                <th>Blok Numarası</th>
+                                                <th>Site</th>
+                                                <th>Güncelle/Sil</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="list form-check-all">
+                                            @if (Model.Item1.Any())
+                                            {
+                                                @foreach (var item in Model.Item1)
+                                                {
+                                                    <tr>
+                                                        <td>@item.blockName</td>
+                                                        <td>@item.blockNumberOfFloors</td>
+                                                        @* <td>
+                                                            <select asp-for="Item2" asp-items="Model.Item2" class="form-control">
+                                                                <option value="">Site Seçin</option>
+                                                            </select>
+                                                        </td> *@
+                                                        <td>
+                                                            <div class="d-flex gap-2">
+                                                                <a href="/Admin/UserUpdate/@item.id" class="btn btn-sm btn-success">Güncelle</a>
+                                                                <button onclick="setDeleteUserId('@item.id')" data-bs-toggle="modal" data-bs-target="#deleteRecordModal" type="button" class="btn btn-sm btn-danger">Sil</button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <tr>
+                                                    <td colspan="4" class="text-center">Tabloda gösterilecek veri bulunmamaktadır.</td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <!-- Pagination -->
+                                <div class="d-flex justify-content-end">
+                                    <div class="pagination-wrap hstack gap-2">
+                                        <a class="page-item pagination-prev disabled">Geri</a>
+                                        <ul class="pagination listjs-pagination mb-0"></ul>
+                                        <a class="page-item pagination-next">İleri</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Modal for Add Site Info -->
+            <div class="modal fade" id="showModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header bg-light p-3">
+                            <h5 class="modal-title">Site Bilgisi Ekle</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form asp-action="BlockCreate" method="post" asp-controller="Admin">
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="blockName" class="form-label">Blok İsmi</label>
+                                    <input type="text" name="blockName" class="form-control" placeholder="Blok ismi giriniz" required />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="blockNumberOfFloors" class="form-label">Blok Numarası</label>
+                                    <input type="text" name="blockNumberOfFloors" class="form-control" placeholder="Blok numarası giriniz" required />
+                                </div>
+                                <div>
+                                    <label for="siteId" class="form-label">Site Seçin</label>
+                                    <select class="form-control" name="siteId">
+                                        <option value="">Site Seçin</option>
+                                        @foreach (var site in Model.Item2)
+                                        {
+                                            <option value="@site.Value">@site.Text</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Kapat</button>
+                                <button type="submit" class="btn btn-success">Ekle</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal for Delete Confirmation -->
+            <div class="modal fade" id="deleteRecordModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mt-2 text-center">
+                                <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop" colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>
+                                <h4>Son Kararın Mı?</h4>
+                                <p class="text-muted">Silmek istediğinden emin misin?</p>
+                            </div>
+                            <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
+                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Kapat</button>
+                                <form asp-action="DeleteBlock" asp-controller="Admin" method="post">
+                                    <input type="hidden" id="Id" name="Id" />
+                                    <button type="submit" class="btn btn-danger">Evet! Sil</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function setDeleteUserId(userId) {
+        document.getElementById("Id").value = userId;
+    }
+</script>
+
+
+
+@* @model Tuple<IEnumerable<Vallet.Domain.DTO.DtoBlok _blok>, IEnumerable<Vallet.Domain.DTO.DtoSite _site>>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xxl-12 col-md-12 col-lg-12">
+        <div class="live-preview">
+            <div class="card">
+                <div class="card-body checkout-tab">
+                    <form action="GET">
+                        <div class="card-body">
+                            <div class="card-body">
+                                <div id="customerList">
+                                    <div class="row g-4 mb-3">
+                                        <div class="col-sm-auto">
+                                            <div>
+                                                <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="ri-add-line align-bottom me-1"></i>Site Bilgisi Ekle</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm">
+                                            <div class="d-flex justify-content-sm-end">
+                                                <div class="search-box ms-2">
+                                                    <input type="text" class="form-control search" placeholder="Ara...">
+                                                    <i class="ri-search-line search-icon"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="table-responsive table-card mt-3 mb-1">
+                                        <table class="table align-middle table-nowrap" id="customerTable">
+                                            <thead class="table-light">
+                                                <tr>
+                                                    <th class="sort" data-sort="customer_name">Blok İsmi</th>
+                                                    <th class="sort" data-sort="email">Blok Numarası</th>
+                                                    <th class="sort" data-sort="status">Site</th>
+                                                    <th class="sort" data-sort="action">Güncelle/Sil</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="list form-check-all">
+                                                @if (Model.Item1.Any())
+                                                {
+                                                    @foreach (var item in Model.Item1)
+                                                    {
+                                                        <tr>
+                                                            <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td>
+
+                                                            <td class="customer_name">@item.blockName</td>
+                                                            <td class="email">@item.blockNumberOfFloors</td>
+
+                                                            <select class="form-control">
+                                                                <option value="">Site Seçin</option>
+                                                                @foreach (var site in Model.Item2)
+                                                                {
+                                                                    <option value="@site.Value" >@site.Text</option>
+                                                                }
+                                                            </select>
+                                                            <td>
+                                                                <div class="d-flex gap-2">
+                                                                    <div class="edit">
+
+                                                                        <a href="/Admin/UserUpdate/@item.id" class="btn btn-sm btn-success edit-item-btn">Güncelle</a>
+
+
+                                                                    </div>
+                                                                    <div class="remove">
+                                                                        <button asp-action="DeleteBlock" asp-controller="Admin" onclick="setDeleteUserId('@item.id')"
+                                                                                data-bs-toggle="modal" data-bs-target="#deleteRecordModal"
+                                                                                type="button" class="btn btn-sm btn-soft-success btn-circle mr-2">
+                                                                            Sil
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <tr>
+                                                        <td colspan="4" class="text-center">Tabloda gösterilecek veri bulunmamaktadır.</td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                        <div class="noresult" style="display: none">
+                                            <div class="text-center">
+                                                <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop"
+                                                           colors="primary:#121331,secondary:#08a88a" style="width:75px;height:75px">
+                                                </lord-icon>
+                                                <h5 class="mt-2">Sorry! No Result Found</h5>
+                                                <p class="text-muted mb-0">
+                                                    We've searched more than 150+ Orders We did not find any
+                                                    orders for you search.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex justify-content-end">
+                                        <div class="pagination-wrap hstack gap-2">
+                                            <a class="page-item pagination-prev disabled">
+                                                Geri
+                                            </a>
+                                            <ul class="pagination listjs-pagination mb-0"></ul>
+                                            <a class="page-item pagination-next">
+                                                İleri
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal fade" id="showModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header bg-light p-3">
+                            <h5 class="modal-title" id="exampleModalLabel"></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                                    id="close-modal"></button>
+                        </div>
+                        <form asp-action="BlockCreate" method="post" asp-contoroller="Admin">
+                            <div class="modal-body">
+
+                                <div class="mb-3">
+                                    <label for="customername-field" class="form-label">Blok İsmi</label>
+                                    <input type="text" name="fullname" class="form-control" placeholder="Blok isim giriniz" required />
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="email-field" class="form-label">Email</label>
+                                    <input type="text" name="email" class="form-control" placeholder="Blok numarası giriniz" required />
+                                </div>
+
+                                <div>
+                                    <label for="status-field" class="form-label">Site Seçin</label>
+                                    <select class="form-control" name="siteId">
+                                        <option value="">Role</option>
+                                        <option value="Admin">Admin</option>
+                                        <option value="User">User</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="hstack gap-2 justify-content-end">
+                                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Kapat</button>
+                                    <button type="submit" class="btn btn-success" id="add-btn">Ekle</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Modal -->
+            <div class="modal fade zoomIn" id="deleteRecordModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="btn-close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mt-2 text-center">
+                                <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop"
+                                           colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>
+                                <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
+                                    <h4> Son Kararın Mı ?</h4>
+                                    <p class="text-muted mx-4 mb-0">Silmek istediğinden emin misin ?</p>
+                                </div>
+                            </div>
+                            <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
+                                <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Kapat</button>
+                                <form asp-action="DeleteBlock" asp-controller="Block" method="post">
+                                    <input type="hidden" id="Id" name="Id" />
+                                    <button type="submit" class="btn w-sm btn-danger " name="DeleteUser">Evet! Sil</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end modal -->
+        </div>
+    </div>
+</div>
+
+<script>
+    function setDeleteUserId(userId) {
+        document.getElementById("Id").value = userId;
+    };
+</script>
+
+
+ *@

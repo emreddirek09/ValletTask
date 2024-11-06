@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Vallet.UI.Controllers.User
+namespace Vallet.UI.Controllers
 {
     public class UIController : Controller
     {

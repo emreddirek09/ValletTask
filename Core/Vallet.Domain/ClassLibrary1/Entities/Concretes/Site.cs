@@ -14,5 +14,10 @@ namespace Vallet.Domain.Entities.Concretes
         public string? SiteAddress { get; set; }
         public bool SiteIsApartment { get; set; }
         public ICollection<Blok>? Blocks { get; set; }
+
+        public static implicit operator Site(List<User?> v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

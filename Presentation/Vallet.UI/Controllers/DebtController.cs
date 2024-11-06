@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Vallet.UI.Controllers.Admin
+namespace Vallet.UI.Controllers
 {
     public class DebtController : Controller
     {

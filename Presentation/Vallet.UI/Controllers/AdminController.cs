@@ -1,12 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Humanizer;
+using Microsoft.AspNetCore.Mvc;
 using Vallet.Application.BaseResult.Concretes;
 using Vallet.Application.Features.Commands.FUser.UpdateUser;
-using Vallet.Application.Features.Queries.FUser.GetByIdUser;
 using Vallet.Domain.DTO;
 using Vallet.UI.Helpers.ClientHelper;
 
-namespace Vallet.UI.Controllers.Admin
+namespace Vallet.UI.Controllers
 {
+ 
     public class AdminController : Controller
     {
         readonly IValletClient _valletClient;
@@ -61,8 +62,8 @@ namespace Vallet.UI.Controllers.Admin
 
             return RedirectToAction("Index"); 
         }
-
-        [HttpPut]
+         
+        [HttpPost]
         public async Task<IActionResult> UserUpdate(UpdateUserCommandRequest dto)
         {
             var result = await _valletClient.PostAsync<UpdateUserCommandRequest, bool>(dto, "Users/PuT");
@@ -72,5 +73,7 @@ namespace Vallet.UI.Controllers.Admin
             }
             return RedirectToAction("index");
         }
+
+
     }
 }

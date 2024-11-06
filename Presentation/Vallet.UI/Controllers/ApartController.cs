@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Vallet.UI.Helpers.ClientHelper;
 
-namespace Vallet.UI.Controllers.Admin
+namespace Vallet.UI.Controllers
 {
     public class ApartController : Controller
     {

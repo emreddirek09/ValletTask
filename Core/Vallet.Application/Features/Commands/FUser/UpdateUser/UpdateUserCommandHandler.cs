@@ -1,9 +1,4 @@
-﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR; 
 using Vallet.Application.Repositories;
 using Vallet.Domain.Entities.Concretes;
 
@@ -22,10 +17,10 @@ namespace Vallet.Application.Features.Commands.FUser.UpdateUser
 
         public async Task<UpdateUserCommandResponse> Handle(UpdateUserCommandRequest request, CancellationToken cancellationToken)
         {
-            User user = await _userReadRepository.GetByIdAsync(request.Id);
-            user.PhoneNumber = request.PhoneNumber;
-            user.FullName = request.FullName;
-            user.Email = request.Email; 
+            User user = await _userReadRepository.GetByIdAsync(request.id);
+            user.PhoneNumber = request.phoneNumber;
+            user.FullName = request.fullName;
+            user.Email = request.email; 
             await _userWriteRepository.SaveAsync();
             return new();
 

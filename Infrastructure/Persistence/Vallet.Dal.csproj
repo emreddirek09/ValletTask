@@ -13,7 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\Vallet.Application\Vallet.Application.csproj" />
     <ProjectReference Include="..\..\Presentation\Vallet.UI\Vallet.UI.csproj" />
   </ItemGroup>
 

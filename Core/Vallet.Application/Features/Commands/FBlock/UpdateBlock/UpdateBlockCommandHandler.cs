@@ -1,10 +1,4 @@
-﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Vallet.Application.Features.Commands.FSite.UpdateSite;
+﻿using MediatR; 
 using Vallet.Application.Repositories;
 using Vallet.Domain.Entities.Concretes;
 

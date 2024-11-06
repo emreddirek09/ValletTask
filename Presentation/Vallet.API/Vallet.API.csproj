@@ -17,10 +17,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\Vallet.Application\Vallet.Application.csproj" />
-    <ProjectReference Include="..\..\Core\Vallet.Domain\ClassLibrary1\Vallet.Domain.csproj" />
-    <ProjectReference Include="..\..\Infrastructure\Persistence\Vallet.Persistence.csproj" />
+    <ProjectReference Include="..\..\Core\Vallet.Application\Vallet.BLL.csproj" />
+    <ProjectReference Include="..\..\Core\Vallet.Domain\ClassLibrary1\Vallet.Entities.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Persistence\Vallet.Dal.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Vallet.Infrastructure\Vallet.Infrastructure.csproj" />
+    <ProjectReference Include="..\Vallet.UI\Vallet.UI.csproj" />
   </ItemGroup>
 
 </Project>

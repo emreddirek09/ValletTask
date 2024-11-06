@@ -4,10 +4,7 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
-@{
-    string _selectUserId = "";
-}
+ 
 <div class="row">
     <div class="col-xxl-12 col-md-12 col-lg-12">
         <div class="live-preview">
@@ -46,21 +43,23 @@
                                                 </tr>
                                             </thead>
                                             <tbody class="list form-check-all">
-                                                @foreach (var item in Model)
+                                                @if (Model.Any())
                                                 {
-                                                    <tr>
-                                                        <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td>
+                                                    @foreach (var item in Model)
+                                                    {
+                                                        <tr>
+                                                            <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td>
 
-                                                        <td class="customer_name">@item.fullName</td>
-                                                        <td class="email">@item.email</td>
-                                                        <td class="phone">@item.phoneNumber</td>
-                                                        <td class="date">@item.createdTime</td>
-                                                        <td class="status"><span class="badge badge-soft-success ">@item.role</span></td>
-                                                        <td>
-                                                            <div class="d-flex gap-2">
-                                                                <div class="edit">
+                                                            <td class="customer_name">@item.fullName</td>
+                                                            <td class="email">@item.email</td>
+                                                            <td class="phone">@item.phoneNumber</td>
+                                                            <td class="date">@item.createdTime</td>
+                                                            <td class="status"><span class="badge badge-soft-success ">@item.role</span></td>
+                                                            <td>
+                                                                <div class="d-flex gap-2">
+                                                                    <div class="edit">
 
-                                                                    @*   <button type="button"
+                                                                        @*   <button type="button"
                                                                 asp-action="Update"
                                                                 asp-controller="Admin"
                                                                 class="btn btn-sm btn-success edit-item-btn"
@@ -70,19 +69,26 @@
                                                                 Güncelle
                                                                 </button> *@
 
-                                                                    <a href="/Admin/UserUpdate/@item.id" class="btn btn-sm btn-success edit-item-btn">Güncelle</a>
+                                                                        <a href="/Admin/UserUpdate/@item.id" class="btn btn-sm btn-success edit-item-btn">Güncelle</a>
 
 
+                                                                    </div>
+                                                                    <div class="remove">
+                                                                        <button asp-action="DeleteUser" asp-controller="Admin" onclick="setDeleteUserId('@item.id')"
+                                                                                data-bs-toggle="modal" data-bs-target="#deleteRecordModal"
+                                                                                type="button" class="btn btn-sm btn-soft-success btn-circle mr-2">
+                                                                            Sil
+                                                                        </button>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="remove">
-                                                                    <button asp-action="DeleteUser" asp-controller="Admin" onclick="setDeleteUserId('@item.id')"
-                                                                            data-bs-toggle="modal" data-bs-target="#deleteRecordModal"
-                                                                            type="button" class="btn btn-sm btn-soft-success btn-circle mr-2">
-                                                                        Sil
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </td>
+                                                            </td>
+                                                        </tr>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <tr>
+                                                        <td colspan="4" class="text-center">Tabloda gösterilecek veri bulunmamaktadır.</td>
                                                     </tr>
                                                 }
                                             </tbody>
@@ -103,11 +109,11 @@
 
                                     <div class="d-flex justify-content-end">
                                         <div class="pagination-wrap hstack gap-2">
-                                            <a class="page-item pagination-prev disabled" href="#">
+                                            <a class="page-item pagination-prev disabled">
                                                 Geri
                                             </a>
                                             <ul class="pagination listjs-pagination mb-0"></ul>
-                                            <a class="page-item pagination-next" href="#">
+                                            <a class="page-item pagination-next">
                                                 İleri
                                             </a>
                                         </div>
@@ -165,7 +171,7 @@
                 </div>
             </div>
 
-           
+
             <!-- Modal -->
             <div class="modal fade zoomIn" id="deleteRecordModal" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
@@ -203,4 +209,3 @@
         document.getElementById("Id").value = userId;
     };
 </script>
- 

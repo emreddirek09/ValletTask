@@ -15,8 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\Vallet.Application\Vallet.Application.csproj" />
-    <ProjectReference Include="..\..\Core\Vallet.Domain\ClassLibrary1\Vallet.Domain.csproj" />
+    <ProjectReference Include="..\..\Core\Vallet.Application\Vallet.BLL.csproj" />
+    <ProjectReference Include="..\..\Core\Vallet.Domain\ClassLibrary1\Vallet.Entities.csproj" />
   </ItemGroup>
 
 </Project>

@@ -9,9 +9,9 @@ namespace Vallet.Application.Features.Commands.FUser.UpdateUser
 {
     public class UpdateUserCommandRequest : IRequest<UpdateUserCommandResponse>
     {
-        public string Id { get; set; }
-        public string? FullName { get; set; }
-        public string? Email { get; set; }
-        public string? PhoneNumber { get; set; } 
+        public string id { get; set; }
+        public string fullName { get; set; }
+        public string email { get; set; }
+        public string phoneNumber { get; set; } 
     }
 }

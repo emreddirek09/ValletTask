@@ -8,8 +8,11 @@ namespace Vallet.Domain.DTO
 {
     public class DtoBlok
     {
-        public  string Id { get; set; }
-        public string? BlockName { get; set; }
-        public int BlockNumberOfFloors { get; set; }
+        public  string id { get; set; }
+        public string? blockName { get; set; }
+        public int blockNumberOfFloors { get; set; }
+        public string? siteId { get; set; }
+
+
     }
 }

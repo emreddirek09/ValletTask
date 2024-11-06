@@ -1,13 +1,11 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Http;
+﻿using MediatR; 
 using Microsoft.AspNetCore.Mvc;
 using Vallet.Application.Features.Commands.FSite.CreateSite;
 using Vallet.Application.Features.Commands.FSite.RemoveSite;
-using Vallet.Application.Features.Commands.FSite.UpdateSite;
-using Vallet.Application.Features.Commands.FUser.RemoveUser;
+using Vallet.Application.Features.Commands.FSite.UpdateSite; 
 using Vallet.Application.Features.Queries.FSite.GetAllSite;
 using Vallet.Application.Features.Queries.FSite.GetByIdSite;
-using Vallet.Application.Repositories;
+using Vallet.Application.Features.Queries.FSite.GetGroupName;  
 
 namespace Vallet.API.Controllers
 {
@@ -25,6 +23,13 @@ namespace Vallet.API.Controllers
         public async Task<IActionResult> Get([FromQuery] GetAllSiteQueryRequest queryRequest)
         {
             GetAllSiteQueryResponse response = await _mediator.Send(queryRequest);
+            return Ok(response);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetGroup([FromQuery] SiteGetGroupNameRequest queryRequest)
+        {
+            SiteGetGroupNameResponse response = await _mediator.Send(queryRequest);
             return Ok(response);
         }
 

@@ -3,7 +3,7 @@ using Vallet.Application.BaseResult.Concretes;
 using Vallet.Domain.DTO;
 using Vallet.UI.Helpers.ClientHelper;
 
-namespace Vallet.UI.Controllers.Admin
+namespace Vallet.UI.Controllers
 {
     public class SiteController : Controller
     {
@@ -14,14 +14,14 @@ namespace Vallet.UI.Controllers.Admin
             _valletClient = valletClient;
         }
         public async Task<IActionResult> Index()
-        { 
-
+        {
+            IEnumerable<Vallet.Domain.DTO.DtoBlok> model = new List<Vallet.Domain.DTO.DtoBlok>();
             DataResult<List<DtoSite.Site>>? result = new();
-
             result = await _valletClient.GetList<DtoSite.Site>("Sites/Get");
-
-            return View(result.Data);
-
+            if (result.Data is null)
+                return View(model);
+            else
+                return View(result.Data);
         }
 
         [HttpPost]
@@ -46,6 +46,6 @@ namespace Vallet.UI.Controllers.Admin
             }
             return RedirectToAction("index");
 
-        } 
+        }
     }
 }

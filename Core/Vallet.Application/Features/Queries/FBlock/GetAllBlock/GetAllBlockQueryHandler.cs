@@ -1,7 +1,6 @@
 ﻿using MediatR;
 using Vallet.Application.Repositories;
-using Vallet.Domain.Entities.Concretes;
-
+ 
 namespace Vallet.Application.Features.Queries.FBlock.GetAllBlock
 {
     public class GetAllBlockQueryHandler : IRequestHandler<GetAllBlockQueryRequest, GetAllBlockQueryResponse>

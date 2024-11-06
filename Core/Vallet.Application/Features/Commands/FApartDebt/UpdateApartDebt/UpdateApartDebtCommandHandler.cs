@@ -2,6 +2,7 @@
 using Vallet.Application.Repositories;
 using Vallet.Domain.Entities.Concretes;
 
+
 namespace Vallet.Application.Features.Commands.FApartDebt.UpdateApartDebt
 {
     public class UpdateApartDebtCommandHandler : IRequestHandler<UpdateApartDebtCommandRequest, UpdateApartDebtCommandResponse>
