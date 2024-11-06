@@ -7,16 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\**" />
+    <Content Remove="Models\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <None Remove="Models\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.6" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\Core\Vallet.Application\Vallet.BLL.csproj" />
-    <ProjectReference Include="..\..\Core\Vallet.Domain\ClassLibrary1\Vallet.Entities.csproj" />
+    <ProjectReference Include="..\..\Core\Vallet.Application\Vallet.Application.csproj" />
+    <ProjectReference Include="..\..\Core\Vallet.Domain\ClassLibrary1\Vallet.Domain.csproj" />
   </ItemGroup>
 
 </Project>

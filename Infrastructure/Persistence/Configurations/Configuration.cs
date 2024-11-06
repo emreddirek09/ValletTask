@@ -13,8 +13,12 @@ namespace Vallet.Persistence.Configurations
         {
             get
             {
+                //ConfigurationManager configurationManager = new();
+                //configurationManager.SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../../emre/Presentation/VALLETAPI"));
+
                 ConfigurationManager configurationManager = new();
                 configurationManager.SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../../Presentation/Vallet.API"));
+
                 configurationManager.AddJsonFile("appsettings.json");
                 return configurationManager.GetConnectionString("DefaultConnectionMsSQL");
             }

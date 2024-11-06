@@ -1,0 +1,6 @@
+@VALLETAPI_HostAddress = http://localhost:5282
+
+GET {{VALLETAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

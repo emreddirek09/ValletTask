@@ -7,8 +7,6 @@
 }
 
 <div class="row">
-    <div class="col-xxl-12 col-md-12 col-lg-12">
-        <div class="live-preview">
             <div class="card">
                 <div class="card-body checkout-tab">
                     <form action="GET">
@@ -40,39 +38,39 @@
                                         </tr>
                                     </thead>
                                     <tbody class="list form-check-all">
-                                        @if (Model.Any())
-                                        {
-                                            @foreach (var item in Model)
-                                            {
-                                                <tr>
-                                                    <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td>
+                                @if (Model.Any())
+                                {
+                                    @foreach (var item in Model)
+                                    {
+                                                        <tr>
+                                                            <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td>
 
-                                                    <td class="customer_name">@item.siteName</td>
-                                                    <td class="customer_name">@item.siteAddress</td>
-                                                    <td class="customer_name">@item.siteIsApartment</td>
-                                                    <td>
-                                                        <div class="d-flex gap-2">
-                                                            <div class="edit">
-                                                                <a href="/Admin/SiteUpdate/@item.id" class="btn btn-sm btn-success edit-item-btn">Güncelle</a>
-                                                            </div>
-                                                            <div class="remove">
-                                                                <button asp-action="DeleteSite" asp-controller="Site" onclick="setDeleteUserId('@item.id')"
-                                                                        data-bs-toggle="modal" data-bs-target="#deleteRecordModal"
-                                                                        type="button" class="btn btn-sm btn-soft-success btn-circle mr-2">
-                                                                    Sil
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </td>
+                                                            <td class="customer_name">@item.siteName</td>
+                                                            <td class="customer_name">@item.siteAddress</td>
+                                                            <td class="customer_name">@item.siteIsApartment</td>
+                                                            <td>
+                                                                <div class="d-flex gap-2">
+                                                                    <div class="edit">
+                                                                        <a href="/Admin/SiteUpdate/@item.id" class="btn btn-sm btn-success edit-item-btn">Güncelle</a>
+                                                                    </div>
+                                                                    <div class="remove">
+                                                                        <button asp-action="DeleteSite" asp-controller="Site" onclick="setDeleteUserId('@item.id')"
+                                                                                data-bs-toggle="modal" data-bs-target="#deleteRecordModal"
+                                                                                type="button" class="btn btn-sm btn-soft-success btn-circle mr-2">
+                                                                            Sil
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                                <tr>
+                                                    <td colspan="4" class="text-center">Tabloda gösterilecek veri bulunmamaktadır.</td>
                                                 </tr>
-                                            }
-                                        }
-                                        else
-                                        {
-                                            <tr>
-                                                <td colspan="4" class="text-center">Tabloda gösterilecek veri bulunmamaktadır.</td>
-                                            </tr>
-                                        }
+                                }
                                     </tbody>
                                 </table>
                             </div>
@@ -154,8 +152,6 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
 <script>
     function setDeleteUserId(userId) {
         document.getElementById("Id").value = userId;

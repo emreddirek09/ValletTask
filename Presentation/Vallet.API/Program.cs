@@ -17,14 +17,17 @@ builder.Services.AddControllers();
  builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-#region Cors
 builder.Services.AddCors(options =>
-    options.AddDefaultPolicy(builder => builder
-        .AllowAnyHeader()
-        .AllowAnyMethod()
-        .AllowAnyOrigin()));
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
 var app = builder.Build();
-#endregion
 
 #region FluentValidator 
 //builder.Services.AddValidatorsFromAssemblyContaining<IFluentValidator>().AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters();

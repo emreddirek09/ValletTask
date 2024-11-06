@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Vallet.Domain\ClassLibrary1\Vallet.Entities.csproj" />
+    <ProjectReference Include="..\Vallet.Domain\ClassLibrary1\Vallet.Domain.csproj" />
   </ItemGroup>
 
 </Project>

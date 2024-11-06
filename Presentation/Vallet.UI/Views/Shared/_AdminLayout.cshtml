@@ -3,6 +3,7 @@
 
 <head>
 
+
     <meta charset="utf-8">
     <title>Site Borç Yönetimi</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -152,14 +153,14 @@
                             <a class="nav-link menu-link" target="_parent" href="Admin/index">
                                 <i class="bx bx-home-heart"></i> <span data-key="t-landing">Ana Sayfa</span>
                             </a>
-                        </li> 
+                        </li>
                         <li class="nav-item">
-                            <a class="nav-link menu-link" target="_parent" href="Site/index" >
+                            <a class="nav-link menu-link" target="_parent" href="Site/index">
                                 <i class="bx bx-id-card"></i> <span data-key="t-dashboards">Site Yönetimi</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link menu-link" target="_parent" href="Block/index" >
+                            <a class="nav-link menu-link" target="_parent" href="Block/index">
                                 <i class="bx bx-id-card"></i> <span data-key="t-dashboards">Blok Yönetimi</span>
                             </a>
                         </li>
@@ -170,7 +171,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="Debt/index">
+                            <a class="nav-link menu-link" target="_parent" href="Debt/index">
                                 <i class="ri ri-list-ordered"></i> <span data-key="t-dashboards">Borç Yönetimi</span>
                             </a>
                         </li>
@@ -185,11 +186,7 @@
                     <div class="row">
                         <div class="col-xl-12 col-md-12 col-lg-12">
                             <div class="card">
-                                <div class="card-body">
-                                    <div class="live-preview">
-                                        @RenderBody()
-                                    </div>
-                                </div>
+                                @RenderBody()
                             </div>
                         </div>
                     </div>
@@ -230,7 +227,7 @@
     <script src="~/velzon/assets/js/pages/form-input-spin.init.js"></script>
     <script src="~/velzon/assets/js/app.js"></script>
     <script src="~/velzon/assets/js/pages/ecommerce-product-checkout.init.js"></script>
-   
+
 </body>
 
 
